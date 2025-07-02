@@ -1,0 +1,31 @@
+
+\newcommand{\fo}{\ensuremath{\mathbb{FO}}}
+\DeclarePairedDelimiter{\sem}{\llbracket}{\rrbracket}
+\DeclarePairedDelimiter{\set}{\{}{\}}
+\DeclarePairedDelimiter{\tuple}{\langle}{\rangle}
+
+\NewDocumentCommand\struc{O{1}}{%
+    \ifcase#1
+        undefined
+    \or \mathfrak{A}
+    \or \mathfrak{B}
+    \else undefined
+
+    \fi
+}
+
+
+
+\DeclarePairedDelimiter{\len}{\|}{\|}
+
+\NewDocumentCommand\fml{O{1}}{%
+    \ifcase#1
+        undefined
+    \or \varphi
+    \or \psi
+    \or \rho
+    \else undefined
+
+    \fi
+}
+

@@ -20,14 +20,21 @@
 {\begin{screen}\begin{CJK}{UTF8}{ipxm}}%
 {\end{CJK}\end{screen}}
 
-\newcommand{\fo}{\ensuremath{\mathbb{FO}}}
-\newcommand{\sem}[1]{\llbracket #1 \rrbracket}
-\newcommand{\set}[1]{\{ #1 \}}
-\newcommand{\tuple}[1]{\langle #1 \rangle}
+\usepackage[most]{tcolorbox} % for \begin{tcolorbox}\end{tcolorbox}
+% \usepackage[bibliography=common]{apxproof}
+\usepackage{mathtools} % for \DeclarePairedDelimiter
+\usepackage{environ} % for \NewEnviron
+
+\input{kl/config}
+\input{header/config}
+\input{header/macros}
+\input{kl/abbreviations}
+\input{kl/complexity}
+\input{kl/paper}
 
 \bibliographystyle{plainurl}% the mandatory bibstyle
 
-\title{FO3} %TODO Please add
+\title{On Faster Model Checking of First-Order Graph Properties and Tarski's Calculus of Relations \begin{sideyoshiki}Tentative\end{sideyoshiki}} %TODO Please add
 
 \titlerunning{FO3}
 
@@ -50,10 +57,11 @@
 
 \begin{document}
 
+
 \maketitle
 
 \begin{abstract}
-This is a SUPER-STRONG-PAPER and brings a NEW ERA to the field of FO.
+\input{sec/abstract}
 \end{abstract}
 
 \section{Notation}
@@ -67,6 +75,15 @@ LIPICSとpLaTeXは異常に組み合わせが悪いので、
 Cute round-corner box \\
 \Ja{コメントを付ける時には、screenで囲うとこういう感じになります}
 \end{screen}
+
+\begin{yoshiki}
+  \Ja{コメントテスト}
+\end{yoshiki}
+
+\begin{sideyoshiki}
+  \Ja{コメントテスト２}
+\end{sideyoshiki}
+
 
 We write $\fo^k$ to denote the set of formulas of First-order predicate logic with $k$-variables.
 
@@ -97,6 +114,11 @@ $$
 
 そして、式のquantifier widthというのは、最大のquantifier widthを持つ部分項における、その数として定義します。
 \end{Jcomment}
+
+\input{sec/introduction}
+\input{sec/preliminaries}
+\input{sec/from_dominating_set}
+\input{sec/conclusion}
 
 \section{FPT on FO3}
 
@@ -481,7 +503,9 @@ we can decide if $\mathcal{G} \models \varphi$ in $O(2^{k+w} \cdot |\varphi| \cd
 
 \begin{Jcomment}
     Yo:
-    \url{https://doi.org/10.1145/3196275} Lemma 9.1 Base Case は $O(|\psi| \cdot |\mathcal{G}|)$ ??
+    \cite{gaoCompletenessFirstorderProperties2018} Lemma 9.1 Base Case は $O(|\psi| \cdot |\mathcal{G}|)$ ??
 \end{Jcomment}
+
+\bibliography{../../../../library.bib} % for yn
 
 \end{document}

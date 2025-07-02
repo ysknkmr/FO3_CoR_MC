@@ -1,0 +1,38 @@
+\section{Introduction}\label{sec: introduction}
+
+The ""model checking problem"" is the following problem:
+\begin{center}
+given both a "sentence" $\fml$ and a "structure" $\struc$, does $\struc \models \fml$ hold?
+\end{center}
+The "model checking problem" for $\fo$ is complete in "PSPACE", unfortunately.
+Nevertheless, the "model checking problem" for $\fo^{k}$ can be decided in $\mathcal{O}(\len{\fml} \cdot n^{k})$ time \cite[Proposition 3.1]{vardiComplexityBoundedvariableQueries1995}
+by a naive bottom-up evaluation algorithm,
+where $\len{\fml}$ is the length of $\fml$ and $n$ is the number of \kl{vertices} in $\struc$.
+
+
+A natural question is, whether the complexity $\mathcal{O}(\len{\fml} \cdot n^{k})$ time can be improved.
+Williams \cite{williamsFasterDecisionFirstorder2014} gave a positive answer to the question.
+He showed that the complexity can be improved to $\mathcal{O}(n^{\omega})$ time for $\fo^{3}$,\footnote{More precisely, \cite[Theorem 7]{gaoFineGrainedComplexityStrengthenings2019}} where $\omega$ is the exponent of matrix multiplication.
+
+Namely, the problem 
+\begin{yoshiki}
+    On data complexity (formula is fixed and structure is given) \cite{williamsFasterDecisionFirstorder2014}
+    \begin{itemize}
+        \item For $\fo^{3}$, $\mathcal{O}(n^{\omega})$ time,
+        \item For $\fo^{k}$ (where $k \ge 3$), $\mathcal{O}(n^{\omega + k - 3})$ time,
+        \item For $\fo^{k}$ (where $k \ge 9$), $\mathcal{O}(n^{k - 4})$ time.
+    \end{itemize}
+    
+    On combined complexity ()
+
+    Parameterized complexity 
+\end{yoshiki}
+
+We shed a light the 
+
+
+Related work:
+\begin{itemize}
+    \item \cite{chenParameterizedSpaceComplexity2019}: Space complexity for $\fo^{k}$.
+    \item 
+\end{itemize}

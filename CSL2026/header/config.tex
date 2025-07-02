@@ -1,0 +1,5 @@
+\usepackage[backgroundcolor=orange!20, textcolor={Dark Ruby Red}, textsize=tiny]{todonotes}
+\definecolor{yoshikieditcolor}{RGB}{200,230,200}
+
+\NewEnviron{sideyoshiki}{\todo[caption={},backgroundcolor=yoshikieditcolor, size=\tiny]{Yo: \BODY}}
+\NewEnviron{yoshiki}{\todo[inline,caption={},backgroundcolor=yoshikieditcolor, size=\footnotesize]{Yo: \BODY}} % For deleting comments from the LaTeX source

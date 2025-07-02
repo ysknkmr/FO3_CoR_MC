@@ -1,0 +1,160 @@
+
+\KAuxCommand \KAuxEOF {m}{Does nothing, useless empty argument, and is searched for knowing if the kaux file was written till the end.}
+\KAuxCommand \KAuxUndeclaredScopeTag {m}{Package scope: States that a labelname is used in a knowledge definition.}
+\KAuxCommand \KAuxDeclaredScopeTag {m}{Package scope: States that a labelname has been declared.}
+\KAuxCommand \KAuxNewLinkScopetagInstance {mm}{Package scope: Declares that a label is declared in an instance of a scope.}
+\KAuxCommand \KAuxScopeNewInstance {mmm}{Package scope: Declares a new instance of a scope.}
+\KAuxCommand \KAuxScopeTag {mm}{Package scope: Links a scopetag to an instance of a scope.}
+\KAuxCommand \KAuxKnowledge {mmmm}{Package knowledge: Declares a knowledge. Takes the {namespace}{instance}{knowledge}{directives}.}
+\KAuxCommand \KAuxErrorKnowledgeRecursive {mmmm}{Package 'knowledge: A knowledge has recursive definition. {namespace}{scope}{undefined knowledge}{base knowledge}}
+\KAuxCommand \KAuxErrorKnowledgeUnknown {mmmmm}{Package 'knowledge: A knowledge is not defined. {namespace}{scope/empty}{undefined knowledge}{base knowledge}{command}}
+\KAuxCommand \KAuxErrorLabelUnknown {m}{Package 'knowledge: A label is not defined. {label}}
+\KAuxCommand \KAuxAutoref {mmm}{Package knowledge: Declares an autoref knowledge. Arguments {namespace}{instance}{knowledge}.}
+\KAuxCommand \KAuxAutorefTarget {mmm}{Package knowledge: Declares the use of a target to an autoref knowledge. Arguments {namespace}{instance}{knowledge}.}
+\KAuxCommand \KAuxUseKnowledge {mmm}{Package knowledge: Identifies the use of some knowledge. Arguments {namespace}{instance}{knowledge}.}
+
+
+\KAuxFileAt {abbreviations.tex}{1}
+
+\KAuxFileAt {abbreviations.tex}{2}
+
+\KAuxFileAt {abbreviations.tex}{3}
+
+\KAuxFileAt {abbreviations.tex}{5}
+
+\KAuxFileAt {abbreviations.tex}{6}
+
+\KAuxFileAt {abbreviations.tex}{8}
+
+\KAuxFileAt {abbreviations.tex}{9}
+
+\KAuxFileAt {abbreviations.tex}{10}
+
+\KAuxFileAt {abbreviations.tex}{12}
+
+\KAuxFileAt {abbreviations.tex}{13}
+
+\KAuxFileAt {abbreviations.tex}{14}
+
+\KAuxFileAt {abbreviations.tex}{16}
+
+\KAuxFileAt {abbreviations.tex}{17}
+
+\KAuxFileAt {abbreviations.tex}{19}
+
+\KAuxFileAt {abbreviations.tex}{20}
+
+\KAuxFileAt {abbreviations.tex}{21}
+
+\KAuxFileAt {abbreviations.tex}{23}
+
+\KAuxFileAt {abbreviations.tex}{24}
+
+\KAuxFileAt {abbreviations.tex}{25}
+
+\KAuxFileAt {abbreviations.tex}{27}
+
+\KAuxFileAt {abbreviations.tex}{28}
+
+\KAuxFileAt {abbreviations.tex}{29}
+
+\KAuxFileAt {abbreviations.tex}{31}
+
+\KAuxFileAt {abbreviations.tex}{32}
+
+\KAuxFileAt {abbreviations.tex}{33}
+
+\KAuxFileAt {abbreviations.tex}{35}
+
+\KAuxFileAt {abbreviations.tex}{36}
+
+\KAuxFileAt {abbreviations.tex}{38}
+
+\KAuxFileAt {abbreviations.tex}{39}
+
+\KAuxFileAt {abbreviations.tex}{40}
+
+\KAuxFileAt {complexity.tex}{1}
+
+\KAuxFileAt {complexity.tex}{2}
+
+\KAuxFileAt {complexity.tex}{3}
+
+\KAuxFileAt {complexity.tex}{5}
+
+\KAuxFileAt {complexity.tex}{6}
+
+\KAuxFileAt {complexity.tex}{7}
+
+\KAuxFileAt {paper.tex}{2}
+
+\KAuxFileAt {paper.tex}{3}
+\KAuxAutoref {default}{base}{model checking problem}
+
+\KAuxFileAt {paper.tex}{4}
+
+\KAuxFileAt {paper.tex}{7}
+
+\KAuxFileAt {paper.tex}{8}
+\KAuxAutoref {default}{base}{structure}
+
+\KAuxFileAt {paper.tex}{9}
+
+\KAuxFileAt {paper.tex}{12}
+
+\KAuxFileAt {paper.tex}{13}
+\KAuxAutoref {default}{base}{formula}
+
+\KAuxFileAt {paper.tex}{14}
+
+\KAuxFileAt {paper.tex}{16}
+
+\KAuxFileAt {paper.tex}{17}
+\KAuxAutoref {default}{base}{sentence}
+
+\KAuxFileAt {paper.tex}{18}
+
+\KAuxFileAt {main.tex}{58}
+\KAuxScopeNewInstance {base}{base}{}
+\KAuxScopeNewInstance {document}{document}{base}
+
+\KAuxFileAt {main.tex}{62}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-1}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-2}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-3}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-4}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-5}{document}
+
+\KAuxFileAt {main.tex}{81}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-6}{document}
+
+\KAuxFileAt {main.tex}{85}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-7}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-8}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-9}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-10}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-11}{document}
+\KAuxDeclaredScopeTag {sec: introduction}
+\KAuxNewLinkScopetagInstance {sec: introduction}{document}
+
+\KAuxFileAt {introduction.tex}{3}
+\KAuxAutorefTarget {default}{base}{model checking problem}
+
+\KAuxFileAt {introduction.tex}{10}
+\KAuxErrorKnowledgeUnknown {default}{}{vertices}{vertices}{\kl }
+
+\KAuxFileAt {introduction.tex}{29}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-12}{document}
+\KAuxDeclaredScopeTag {sec: preliminaries}
+\KAuxNewLinkScopetagInstance {sec: preliminaries}{document}
+\KAuxDeclaredScopeTag {sec: conclusion}
+\KAuxNewLinkScopetagInstance {sec: conclusion}{document}
+\KAuxDeclaredScopeTag {thm:FO3-FPT}
+\KAuxNewLinkScopetagInstance {thm:FO3-FPT}{document}
+
+\KAuxFileAt {main.tex}{187}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-13}{document}
+
+\KAuxFileAt {main.tex}{230}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-14}{document}
+\KAuxEOF {}
