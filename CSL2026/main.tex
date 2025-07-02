@@ -1,0 +1,487 @@
+\documentclass[a4paper,UKenglish,cleveref, autoref, thm-restate]{lipics-v2021}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{refcount} % ラベルの番号を取得するために使用
+\newcounter{tempTheoremCounter} % カウンタを一時的に保存するための新しいカウンタを定義
+
+\usepackage{tikz}
+\usetikzlibrary{tikzmark, arrows.meta, bending}
+
+\usepackage{CJKutf8} % 日本語を書きたいので
+\usepackage{ascmac} % なんか枠を作る
+\usepackage{stmaryrd}
+
+\newcommand*{\Ja}[1]{%
+  \begin{CJK}{UTF8}{ipxm}#1\end{CJK}%
+}
+
+\newenvironment{Jcomment}%
+{\begin{screen}\begin{CJK}{UTF8}{ipxm}}%
+{\end{CJK}\end{screen}}
+
+\newcommand{\fo}{\ensuremath{\mathbb{FO}}}
+\newcommand{\sem}[1]{\llbracket #1 \rrbracket}
+\newcommand{\set}[1]{\{ #1 \}}
+\newcommand{\tuple}[1]{\langle #1 \rangle}
+
+\bibliographystyle{plainurl}% the mandatory bibstyle
+
+\title{FO3} %TODO Please add
+
+\titlerunning{FO3}
+
+\author{Yoshiki Nakamura}{Science Tokyo, Japan}{mail}{https://orcid.org/0000-0003-4106-0408}{}
+\author{Yuya Uezato}{CyberAgent, Inc., Japan}{mail}{https://orcid.org/0009-0005-8834-010X}{}
+
+\authorrunning{Y. Nakamura and Y. Uezato}
+
+\Copyright{Yoshiki Nakamura and Yuya Uezato}
+
+\ccsdesc[500]{Theory of computation~Logic}
+
+\keywords{First-order Logic,Fine-grained Complexity}
+
+\category{} %optional, e.g. invited paper
+
+\relatedversion{}
+
+%\nolinenumbers %uncomment to disable line numbering
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This is a SUPER-STRONG-PAPER and brings a NEW ERA to the field of FO.
+\end{abstract}
+
+\section{Notation}
+
+\Ja{
+（メモ:
+LIPICSとpLaTeXは異常に組み合わせが悪いので、
+コメントなどで日本語を書く時はこのようにします。）}
+
+\begin{screen}
+Cute round-corner box \\
+\Ja{コメントを付ける時には、screenで囲うとこういう感じになります}
+\end{screen}
+
+We write $\fo^k$ to denote the set of formulas of First-order predicate logic with $k$-variables.
+
+\paragraph*{Important Remark (Unary and Binary Predicates)}
+We allow unary and binary predicates in our $\fo^3$.
+Therefore, we do not allow terms involving ternary predicates such as $\forall x.\,\exists y.\,\forall z.\, P(x, y, z)$.%
+\footnote{For each unary predicate $U$, we can simulate it by a diagonal binary predicate $B_U(x, y) := x = y \land U(x)$. However, in our later construction, we use some unary predicates; thus, we also allow unary predicates explicitly.}
+
+On this remark, we can identify each model $\mathcal{M}$ as color graphs as follows:
+\begin{itemize}
+\item Each element corresponds a node (vertex).
+\item Each unary predicate $U_i$ means ``color-$i$'' node.
+\item Each binary predicate $P_j$ is ``color-$j$'' edge.
+\item For example, on two nodes $x, y$, a term $(U_i(x) \land U_j(y) \land P_k(x, y))$ means that $x$ has the color $i$, $y$ has the color $j$, and there is a color $k$ edge from $x$ to $y$.
+\end{itemize}
+
+\paragraph*{Quantifier width}
+\begin{Jcomment}
+Quantifier widthという謎の指標を導入します。
+
+与えられた式の部分項 $\forall/\exists x. ( \cdots )$ について $\cdots$部分に「直接」出てくるquantifierの個数を、この部分項のquantifier widthと呼ぶことにします。
+
+たとえば、次の部分項
+$$
+\forall x.\biggl( \Bigl(\underline{{\color{red}\forall}} y. P(y)\Bigr) \lor \Bigl(\underline{{\color{red}\forall}} z. (\underline{\forall} x. P(z, x)) \land Q(z)\Bigr) \biggr)
+$$
+については、内部に3つのquantifierの出現（下線）があるのですが、直接の出現は赤くした2つだけなので、この部分項のquantifier widthは「２」です。
+
+そして、式のquantifier widthというのは、最大のquantifier widthを持つ部分項における、その数として定義します。
+\end{Jcomment}
+
+\section{FPT on FO3}
+
+We write $\fo^3_{k, w}$ to denote the set of formulas of $\fo^3$ with $k$-predicates and $w$-quantifier-width.
+
+%\begin{restatable}[Number of predicates is a FPT-parameter]{theorem}{thmFOthreeFPT}
+\begin{theorem}[\text{$\fo^3_{k, w}$ model checkig is FPT}]
+\label{thm:FO3-FPT}
+\mbox{}
+
+Let $\varphi : \fo^3_{k, w}$.
+
+For a given model (graph) $\mathcal{G}$,
+we can decide if $\mathcal{G} \models \varphi$ in $O(2^{k + w} \cdot |\varphi| \cdot N^{\omega})$ where
+\begin{itemize}
+\item $N$ is the number of vertices in $\mathcal{G}$; and
+\item $\omega$ is a complexity constant for the boolean matrix multiplication (BMM): i.e., $O(N^\omega)$-time is the time complexity for BMM of two $(N, N)$ matrices.\footnote{\Ja{何らかの論文をciteして、今の記録がどれくらいか書いておくと分かりやすい}}
+\end{itemize}
+\end{theorem}
+ %\end{restatable}
+
+\begin{corollary}
+If we fix the number of predicates $k$ and width $w$,
+the model checking problem $\mathcal{G} \models \varphi$ in $O(|\varphi| \cdot N^{\omega})$ time-complexity where $N$ is the number of nodes in $\mathcal{G}$.
+\end{corollary}
+
+\begin{Jcomment}
+    $k$をfixしない、素朴な $\set{ (x, y, z) }$ 構築アルゴリズムだと $O(|\varphi| \cdot N^3)$ になって、
+    その設定だと Theorem~\ref{thm:FO3-FPT} は 係数 が大きくなりすぎて遅いということを、
+    意味のある形で言及した方が良い。
+\end{Jcomment}
+
+\Ja{以降、Theorem~\ref{thm:FO3-FPT} の証明をやっていきます。}
+
+\subsection{Proof of Theorem~\ref{thm:FO3-FPT}}
+
+Here we use $P, Q, R \ldots$ to denote binary predicates and $U, \ldots$ for unary predicates.
+
+For a given graph (model) $\mathcal{G}$, we write $N_{\mathcal{G}}$ or simply $N$ to denote the number of vertices of $\mathcal{G}$.
+
+\paragraph*{Our idea: Quantifier elimination (Simple case)}
+
+Our query evaluation strategy is evaluating the innermost (quantifier-free formula) to the outermost along with quantifier eliminating.
+
+Let us consider the following situation:
+$$
+Qx. \cdots
+( Qy. \cdots
+  ( \tikzmarknode{Qz}{Qz}. \cdots
+    ( Qx. \cdots
+      ( \tikzmarknode{Qy}{Qy}. \cdots
+        ( \exists\tikzmarknode{Ex}{x} .
+          ( 
+            P(\tikzmarknode{Ry}{y}, \tikzmarknode{Rx}{x})
+            \land          
+            R(\tikzmarknode{Px}{x}, \tikzmarknode{Pz}{z})
+          )
+        )
+      )
+    )
+  )
+)
+$$
+%
+% 矢印の描画
+\begin{tikzpicture}[
+    remember picture,
+    overlay,
+    arr/.style={-{[bend]Stealth[length=2mm, width=1.5mm]}, shorten <=0.5pt, shorten >=0.5pt}
+]
+    % P(x,z) の x から ∃x へ (赤色の矢印)
+    \draw[arr, red]
+        (Px.north) .. controls +(0, 0.4) and +(0, 0.4) .. (Ex.north);
+
+    % R(y,x) の x から ∃x へ (赤色の矢印)
+    \draw[arr, red]
+        (Rx.north) .. controls +(0, 0.6) and +(0, 0.6) .. (Ex.north);
+
+    % P(x,z) の z から Qz へ (青色の矢印)
+    \draw[arr, blue]
+        (Pz.north) .. controls +(0, 0.8) and +(0, 0.8) .. (Qz.north);
+        
+    % R(y,x) の y から Qy へ (緑色の矢印)
+    \draw[arr, green!60!black]
+        (Ry.north) .. controls +(0, 0.6) and +(0, 0.6) .. (Qy.north);
+\end{tikzpicture}
+To eliminate $\exists z. P(y, x) \land R(x, z)$, we introduce a new predicate defined as follows:
+$$
+S(x, y) := \exists z. P(x, z) \land Q(z, y).
+$$
+
+It is worth noting that $S$ is just the composed predicate of $P$ and $Q$.
+So, we write $P \odot Q$ instead of $S$.
+
+Using this predicate, we can rewrite the above one to the following one:
+$$
+Qx \cdots
+( Qy \cdots
+  ( \tikzmarknode{Qz}{Qz} \cdots
+    ( Qx.\
+      (
+        \tikzmarknode{Qy}{Qy}.\ (P \odot R)(\tikzmarknode{ty}{y}, \tikzmarknode{tz}{z})
+      )
+    )
+  )
+)
+$$
+
+\begin{tikzpicture}[
+    remember picture,
+    overlay,
+    arr/.style={-{[bend]Stealth[length=2mm, width=1.5mm]}, shorten <=0.5pt, shorten >=0.5pt}
+]
+    % P(x,z) の z から Qz へ (青色の矢印)
+    \draw[arr, blue]
+        (tz.north) .. controls +(0, 0.6) and +(0, 0.6) .. (Qz.north);
+        
+    % R(y,x) の y から Qy へ (緑色の矢印)
+    \draw[arr, green!60!black]
+        (ty.north) .. controls +(0, 0.4) and +(0, 0.4) .. (Qy.north);
+\end{tikzpicture}
+
+Continuing this process, if we eventually enter $\forall x. \exists y. T(x, y)$:
+\begin{enumerate}
+\item building a unary predicate $T_y(x) := \exists y. T(x, y)$ in $O(N^2)$-time, we rewrite it to $\forall x. T_y(x)$.
+\item we then simply evaluate $\forall x. T_y(x)$ as $\bigwedge_{1 \leq i \leq N} T_y(i)$ in $O(N)$-time.
+\end{enumerate}
+
+\paragraph*{Time-complexity of basic operations}
+
+Here we enumerate the time-complexity of our basic operations, which will be used later:
+\begin{itemize}
+\item Building a new predicate $Q(x, y) := P(x, y) \bowtie R(x, y)$ ($\mathord{\bowtie} \in \set{ \land, \lor }$) needs $O(N^2)$-time.
+%
+\item Transposing a predicate $P^T(x, y) := P(y, x)$ needs $O(N^2)$-time.
+%
+\item Evaluating unary predicates $\mathcal{Q} x. P(x)$ ($\mathcal{Q} \in \set{\forall, \exists}$) needs $O(N)$-time.
+%
+\item Building a new predicate $Q(x) := \mathcal{Q} y. P(x, y)$ ($\mathcal{Q} \in \set{\exists, \forall}$) needs $O(N^2)$-time.
+\end{itemize}
+
+So, the remaining operator is predicate composing $(P \odot Q)(x, y) := \exists z. P(x, z) \land Q(z, y)$ from predicates $P$ and $Q$.
+Although a very simple matrix multiplication requires $O(N^3)$-time,
+we can build such $P \odot Q$ using fast matrix multiplication algorithms.
+\begin{proposition}[Fact]
+From two predicates $P$ and $Q$, we can build the composited predicate $P \odot Q$ in $O(N^\omega)$-time.
+\end{proposition}
+
+\subsection{Quantifier elimination: General case}
+
+If we encounter terms of the very restricted form like $\exists z. P(x, z) \land Q(z, y)$,
+we can replace it by $(P \odot Q)(x, y)$ with eliminating the quantifier occurrence $\exists z$.
+
+In other words, if we encounter more general form of $\exists z. \cdots$, we need to translate it to some adequate form for quantifier elimination.
+%
+Let us consider the following term:
+$$
+\exists z. \biggl(
+\bigl(P(x, z) \lor P(y, z) \lor P(x, y) \bigr)
+\land
+\bigl(Q(x, z) \lor Q(x, y)\bigr)
+\land
+\bigl(R(y, z) \lor R(x, y)\bigr)
+\biggr).
+$$
+
+We cannot directly apply our quantifier elimination strategy because $\exists$-quantifiers do not distribute on $\land$: i.e.,
+$(\exists z. \varphi_1 \land \varphi_2) \neq (\exists z. \varphi_1) \land (\exists z. \varphi_2)$.
+
+To apply our quantifier elimination procedure, DNF is an adequate form.
+However, as well-known, converting-to-DNF translation generates an exponential-large expression in the worst case.
+For our example, we fist translate the first $(\cdots) \land (\cdots)$ subterm as follows:
+$$
+\begin{array}{l}
+\bigl(P(x, z) \lor P(y, z) \lor P(x, y) \bigr)
+\land
+\bigl(Q(x, z) \lor Q(x, y)\bigr) \\
+\quad \Rightarrow \\
+\phantom{\lor}\,
+(P(x, z) \land Q(x,z)) \lor
+(P(y, z) \land Q(x,z)) \lor
+(P(x, y) \land Q(x, z)) \\
+\lor\,
+(P(x, z) \land Q(x, y)) \lor
+(P(y, z) \land Q(x, y)) \lor
+(P(x, y) \land Q(x, y)).
+\end{array}
+$$
+We continue to normalize this term with $R(y, z) \lor R(x, y)$
+and it generates DNF with 12 bases of the form $P(\_, \_) \land Q(\_, \_)$.
+
+Since our goal is to design an $O(F(k, w) \cdot |\varphi| \cdot N^{\omega})$-time algorithm, we cannot adopt converting-to-DNF transformations.
+
+
+\subsection{Tseytin-like (?) transformation for General Cases}
+
+As we have seen above, explicit translations to DNF does not work well since it may explode given expression to an exponential size.
+
+We here develop a translation inspired by Tseytin's transformation.\footnote{\url{https://en.wikipedia.org/wiki/Tseytin_transformation}}
+
+\begin{Jcomment}
+    実際はインスパイアされたという程でもないんですが、
+    とはいえよく知られた構成な気もするので、何かciteできるものがあればしたいという感じ。
+\end{Jcomment}
+
+Let us revisit the above example:
+$$
+\exists z. \biggl(
+\bigl(P(x, z) \lor P(y, z) \lor P(x, y) \bigr)
+\land
+\bigl(Q(x, z) \lor Q(x, y)\bigr)
+\land
+\bigl(R(y, z) \lor R(x, y)\bigr)
+\biggr).
+$$
+
+First, we generate all possible \emph{assignments} to predicates.
+For our example, we have the following assignments:
+$$
+\begin{array}{c|ccccccc}
+& P(x, z) & P(y, z) & P(x, y) & Q(x, z) & Q(x, y) & R(y, z) & R(x, y) \\\hline
+\alpha_1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\alpha_2 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+\alpha_3 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+\vdots \\
+\alpha   & 1 & 0 & 1 & 0 & 1 & 0 & 0 \\
+\vdots \\
+\alpha_{\star}   & 1 & 1 & 1 & 1 & 1 & 1 & 1
+\end{array}
+$$
+
+Let $\mathcal{A}$ be the set of all assignments.
+
+Let $\sem{\Psi}_{\alpha}$ be a boolean value obtained by evaluationg $\Psi$ under an assignment $\alpha$.
+
+For our example expression $\psi$, $\sem{\psi}_{\alpha} = 0$ using $\alpha$ appearing in the above table.
+
+If we change $\alpha$ as $\alpha(R(y,z)) \gets 1$, then $\sem{\psi}_{\alpha} = 1$.
+
+Introducing assignment leads to the following useful proposition.
+\begin{proposition}
+$$
+\Psi(x, y, z) \iff
+\bigvee_{\alpha \in \mathcal{A}} \Bigl( \alpha \land \sem{\Psi}_{\alpha} \Bigr).
+$$
+
+Especially, let $\mathcal{V} = \set{ \alpha \in \mathcal{A} : \sem{\Psi}_\alpha }$, then we have:
+$$
+\Psi(x,y, z) \iff \bigvee_{\alpha \in \mathcal{V}} \alpha(x, y, z). \qquad (\star)
+$$
+\end{proposition}
+
+
+By the definition of assignments, $\alpha$ takes the following form:
+$$
+\alpha(x, y, z) \equiv P_1(x, y) \land P_1(x, z) \land P_2(y, z) \land \cdots \land P_k(x, z).
+$$
+It means that the right-hand side of $(\star)$ takes DNF. Therefore,
+$$
+\exists z. \Psi(x, y, z) \iff (\exists z. \alpha_1(x, y, z)) \lor (\exists z. \alpha_2(x, y, z)) \lor \cdots \lor (\exists z. \alpha_{|\mathcal{V}|}(x, y, z)).
+$$
+It suffices to eliminating an $\exists$-quantifier from $\exists z. \alpha(x, y, z)$ for an assignment $\alpha$.
+
+We first divide $\alpha(x, y, z)$ into two parts $\alpha_z$ and $\alpha_{-z}$ as follows:
+$$
+\alpha(x, y, z) \equiv \underbrace{(P_1(x, z) \land P_2(z, x) \land P_1(y, z) \land \cdots)}_{\alpha_z : z-\text{involving-terms}} \land \underbrace{(P_1(x, y) \land P_1(y, x) \land P_2 \land \cdots)}_{\alpha_{-z} : z-\text{non-involving-terms}}
+$$
+We now have the following:
+$$
+\Bigl(\exists z. \alpha(x, y, z)\Bigr) \iff \Bigl(\alpha_{-z}(x, y) \land (\exists z. \alpha_z(x, y, z))\Bigr).
+$$
+
+Finally, we transform $\alpha_z$ in the following steps (order):
+\begin{enumerate}
+\item If $\alpha_z$ has a term $P(z, x)$, we replace it with $\widetilde{P}(x, z)$ where $\widetilde{P}(a, b) = P(b, a)$.
+\item Similarly, we change terms of the form $P(y, z)$ to $\widetilde{P}(z, y)$.
+\item At this point, 
+$$
+\alpha_z(x, y, z) \equiv \underbrace{(P_1(x, z) \land P_3(x, z) \land P_4(x, z) \land \cdots)}_{\Psi_x} \land \underbrace{(P_2(z, y) \land P_3(z, y) \land P_5(z, y) \land \cdots)}_{\Psi_y}.
+$$
+\item Let $\Psi_x$ (resp. $\Psi_y$) be the set of predicates appearing in the above former (resp. latter) part.
+\item Let us introduce two new predicates:
+$$
+\pi(x, z) := \bigwedge_{P \in \Psi_x} P(x, z), \qquad
+\lambda(z, y) := \bigwedge_{Q \in \Psi_y} Q(z, y).
+$$
+\item We reach our goal:
+$$
+\alpha_z(x, y, z) = \pi(x, z) \land \lambda(z, y).
+$$
+\end{enumerate}
+
+Using the final form, we obtain the following:
+$$
+\begin{array}{lcl}
+\biggl(\exists z. \alpha(x, y, z)\biggr) & \iff &
+\biggl(\alpha_{-z}(x, y) \land (\exists z. \pi(x, z) \land \lambda(z, y))\biggr) \\
+& \iff & \biggl(\alpha_{-z}(x, y) \land (\pi \odot \lambda)(x, y)\biggr) \\
+& \iff & (\alpha_{-z} \land (\pi \odot \lambda))(x, y)
+\end{array}
+$$
+
+\subsection{Considering Complexity}
+To eliminate an $\exists$-quantifier from an assignment $\alpha$, we introduce a new single predicate $\alpha_{-z} \land (\pi \odot \lambda)$.
+
+Now we have a question:
+To eliminate the $\exists$-quantifier from $\exists z. \Psi(x, y, z)$,
+from the following characterization
+$$
+\biggl(\exists z. \Psi(x,y, z)\biggr)
+\iff \biggl(\exists z. \bigvee_{\alpha \in \mathcal{V}} \alpha(x, y, z)\biggr)
+\iff \bigvee_{\alpha \in \mathcal{V}} \biggl(\exists z. \alpha(x, y, z)\biggr)
+\iff \bigvee_{\alpha \in \mathcal{V}} (\alpha_{-z} \land (\pi \odot \lambda))(x, y)
+$$
+can we avoid to introduce $O(2^k)$ predicates if we have $k$-predicates??
+Please recall that each assignment is a choice from $9k$-literals from $\mathcal{L}$ where
+$$
+\mathcal{L} = \set{ Q(a, b) : a, b \in \set{x, y, z}, Q \in \set{P_1, P_2, \ldots, P_k} }.
+$$
+
+\textbf{Yes. We can avoid introducing a large number of predicates} because
+we just need to introduce the following single (but large) predicate:
+$$
+(\alpha^1_{-z} \land (\pi^1 \odot \lambda^1)) \lor (\alpha^2_{-z} \land (\pi^2 \odot \lambda^2)) \lor \cdots \lor (\alpha^n_{-z} \land (\pi^n \odot \lambda^n))
+$$
+for $\mathcal{V} = \set{ \alpha^1, \alpha^2, \ldots, \alpha^n }$.
+
+Let us consider what happens when repeatedly eliminating quantifiers from the innermost to the outermost:
+$$
+\begin{array}{l}
+\exists y.
+\Bigl(
+(\exists z. \cdots) \bowtie (\exists z. \cdots) \bowtie \cdots \bowtie (\exists z. \cdots)
+\Bigr) \\
+\quad \Rightarrow \\
+\exists y. \Bigl(
+\begin{array}{c}
+\text{Q. how many predicates appear in this scope?} \\
+\text{A. $k + w$ where $w$ is the quantifier width of $\psi$}
+\end{array}
+\Bigr) \\
+\quad \Rightarrow \\
+\text{Eliminating $(\exists y.)$ introduces a single new predicate.}
+\end{array}
+$$
+
+Since the required number of quantifier elimination (= the quantifier depth) is bounded by the size of a given expression $|\psi|$, we obtain the following our theorem in the end.
+
+% \thmFOthreeFPT*
+
+% 1. 現在の定理カウンタの値を保存
+\setcounter{tempTheoremCounter}{\value{theorem}}
+% 2. 目的の定理番号より1つ前の値にカウンタを設定
+\setcounter{theorem}{\numexpr\getrefnumber{thm:FO3-FPT}-1\relax}
+% 3. 再掲出
+\begin{theorem}[Restatement]
+Let $\varphi : \fo^3_{k, w}$.
+
+For a given model (graph) $\mathcal{G}$,
+we can decide if $\mathcal{G} \models \varphi$ in $O(2^{k+w} \cdot |\varphi| \cdot N^{\omega})$.
+\end{theorem}
+% 4. カウンタを元の値に戻す
+\setcounter{theorem}{\value{tempTheoremCounter}}
+
+\section{FO2 model checking}
+
+\begin{Jcomment}
+    $\fo^2$の論理式 $\psi$ と、グラフ $\mathcal{G}$ について
+    $\mathcal{G} \models \psi$ のモデル検査問題は
+    $O(|\psi| \cdot |\mathcal{G}|)$ で解ける気がします。
+    ただし、$|\mathcal{G}|$は頂点数ではなく、述語（つまり辺）の定義の記述長も合わせたものです。
+    面白そうなら書いても良いかと思うのですが、$\fo^3$の話だけにしたほうが、話がぼやけないならなくても良いかなという気がします。
+
+    Dense graphについては $(x, y)$ の値の集合を構築する方法で $O(|\psi| \cdot N^2)$ になります。
+    この $N$ は $\mathcal{G}$ の頂点数の方です。
+    ただ、sparse graphの時には $N^2$ は$|\mathcal{G}|$について線形ではないので、そこを改良したいという感じです。
+
+    アイディアは、$\fo^3$の時と比べると、$\exists y. P(x, y) \land Q(y, x) \simeq (P \odot Q)$ の計算について $(P \odot Q)(x, x)$ の diagonal な形しか要求しないので、行列積を全部やる必要が多分なさそうとかそういう感じです。
+
+    Sparse graphの話なので、もしかすると Impagliazzo たちがやっているかもしれません。
+\end{Jcomment}
+
+\begin{Jcomment}
+    Yo:
+    \url{https://doi.org/10.1145/3196275} Lemma 9.1 Base Case は $O(|\psi| \cdot |\mathcal{G}|)$ ??
+\end{Jcomment}
+
+\end{document}
