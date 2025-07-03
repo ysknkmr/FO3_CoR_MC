@@ -14,13 +14,16 @@
 \KAuxCommand \KAuxUseKnowledge {mmm}{Package knowledge: Identifies the use of some knowledge. Arguments {namespace}{instance}{knowledge}.}
 
 
-\KAuxFileAt {macros.tex}{35}
+\KAuxFileAt {macros.tex}{8}
+\KAuxAutoref {default}{base}{\poly }
+
+\KAuxFileAt {macros.tex}{38}
 \KAuxAutoref {default}{base}{\union }
 
-\KAuxFileAt {macros.tex}{36}
+\KAuxFileAt {macros.tex}{39}
 \KAuxAutoref {default}{base}{\intersection }
 
-\KAuxFileAt {macros.tex}{37}
+\KAuxFileAt {macros.tex}{40}
 \KAuxAutoref {default}{base}{\compo }
 
 \KAuxFileAt {abbreviations.tex}{1}
@@ -196,11 +199,17 @@
 
 \KAuxFileAt {from_dominating_set.tex}{5}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-16}{document}
+\KAuxDeclaredScopeTag {proposition: SETH dominating set}
+\KAuxNewLinkScopetagInstance {proposition: SETH dominating set}{document}
+\KAuxDeclaredScopeTag {corollary: SETH dominating set}
+\KAuxNewLinkScopetagInstance {corollary: SETH dominating set}{document}
 \KAuxDeclaredScopeTag {sec: from cnf}
 \KAuxNewLinkScopetagInstance {sec: from cnf}{document}
 
 \KAuxFileAt {from_cnf.tex}{4}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-17}{document}
+\KAuxDeclaredScopeTag {theorem: SETH CNF}
+\KAuxNewLinkScopetagInstance {theorem: SETH CNF}{document}
 \KAuxDeclaredScopeTag {sec: conclusion}
 \KAuxNewLinkScopetagInstance {sec: conclusion}{document}
 \KAuxEOF {}
