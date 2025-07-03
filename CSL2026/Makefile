@@ -16,7 +16,7 @@ dist:
 	cp lipics-v2021.cls dist
 	cp dist/main.tex dist_main_pandonly.tex # for check
 	# remove environments
-	./makefile_shell.sh remove_environments dist/main.tex yoshiki sideyoshiki
+	./makefile_shell.sh remove_environments dist/main.tex hidden yoshiki sideyoshiki
 	# fix bibliography path
 	./makefile_shell.sh apply_perl "s/\\\\bibliography\{(.*)\}/\\\\bibliography\{main\}/sgm" dist/main.tex
 	# paper mode

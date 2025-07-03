@@ -2,9 +2,9 @@
 * Summary *
 ***********
 
-1 undefined knowledge(s).
+13 undefined knowledge(s).
 0 autoreference(s) are introduced twice.
-2 autoreference(s) are used but not introduced.
+3 autoreference(s) are used but not introduced.
 
 1 autoreference(s) are properly used.
 0 autoreference(s) are defined but not used.
@@ -23,14 +23,35 @@
 ************************
 
 \knowledge{ignore}
-% introduction.tex:10
+% introduction.tex:11
+ | variables
+% introduction.tex:12
  | vertices
+% introduction.tex:31
+ | prenex normal form
+ | quantifiers
+% introduction.tex:37
+ | Strong Exponential Time Hypothesis
+ | SETH
+% introduction.tex:41
+ | Williams--Gao--Impagliazzo's algorithm
+% introduction.tex:42
+ | disjunctive normal form
+ | DNF
+% introduction.tex:47
+ | Tarski's calculus of relations
+ | CoR
+% introduction.tex:53
+ | matrix multiplication
+ | relational composition
 
 
 ******************************
 * Autoref used without intro *
 ******************************
 
+% macros.tex:37
+\nointro{default}{base}{\compo }
 % paper.tex:8
 \nointro{default}{base}{structure}
 % paper.tex:17

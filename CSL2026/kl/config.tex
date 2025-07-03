@@ -8,28 +8,28 @@
 \definecolor{Dark Blue Sapphire}{HTML}{053641}
 \definecolor{Dark Gamboge}{HTML}{be7c00}
 
-% \IfKnowledgePaperModeTF{
-%     %
-% }{
-%     % If we are NOT in paper mode (i.e. in composition mode or electronic mode)
-%     \knowledgestyle{intro notion}{color={Dark Ruby Red}, emphasize}
-%     \knowledgestyle{notion}{color={Dark Blue Sapphire}}
-%     \hypersetup{
-%         colorlinks=true,
-%         breaklinks=true,
-%         linkcolor={cGreen}, % Links to sections, pages, etc.
-%         citecolor={cGreen}, % Links to bibliography
-%         filecolor={cGreen}, % Links to local file
-%         urlcolor={cGreen},
-%     }
-%     \IfKnowledgeElectronicModeTF{
-%         %
-%     }{
-%         % If we are in composition mode, highlight unknown stuff (in yellow) and display the anchor point.
-%         \knowledgeconfigure{anchor point color={Dark Ruby Red}, anchor point shape=corner}
-%         \knowledgestyle{intro unknown}{color={Dark Gamboge}, emphasize}
-%         \knowledgestyle{intro unknown cont}{color={Dark Gamboge}, emphasize}
-%         \knowledgestyle{kl unknown}{color={Dark Gamboge}}
-%         \knowledgestyle{kl unknown cont}{color={Dark Gamboge}}
-%     }
-% }
+\IfKnowledgePaperModeTF{
+    %
+}{
+    % If we are NOT in paper mode (i.e. in composition mode or electronic mode)
+    % \knowledgestyle{intro notion}{color={Dark Ruby Red}, emphasize}
+    \knowledgestyle{notion}{color={Dark Blue Sapphire}}
+    % \hypersetup{
+    %     colorlinks=true,
+    %     breaklinks=true,
+    %     linkcolor={cGreen}, % Links to sections, pages, etc.
+    %     citecolor={cGreen}, % Links to bibliography
+    %     filecolor={cGreen}, % Links to local file
+    %     urlcolor={cGreen},
+    % }
+    \IfKnowledgeElectronicModeTF{
+        %
+    }{
+        % If we are in composition mode, highlight unknown stuff (in yellow) and display the anchor point.
+        % \knowledgeconfigure{anchor point color={Dark Ruby Red}, anchor point shape=corner}
+        % \knowledgestyle{intro unknown}{color={Dark Gamboge}, emphasize}
+        % \knowledgestyle{intro unknown cont}{color={Dark Gamboge}, emphasize}
+        % \knowledgestyle{kl unknown}{color={Dark Gamboge}}
+        % \knowledgestyle{kl unknown cont}{color={Dark Gamboge}}
+    }
+}

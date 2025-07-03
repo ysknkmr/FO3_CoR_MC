@@ -14,6 +14,15 @@
 \KAuxCommand \KAuxUseKnowledge {mmm}{Package knowledge: Identifies the use of some knowledge. Arguments {namespace}{instance}{knowledge}.}
 
 
+\KAuxFileAt {macros.tex}{35}
+\KAuxAutoref {default}{base}{\union }
+
+\KAuxFileAt {macros.tex}{36}
+\KAuxAutoref {default}{base}{\intersection }
+
+\KAuxFileAt {macros.tex}{37}
+\KAuxAutoref {default}{base}{\compo }
+
 \KAuxFileAt {abbreviations.tex}{1}
 
 \KAuxFileAt {abbreviations.tex}{2}
@@ -114,21 +123,19 @@
 
 \KAuxFileAt {paper.tex}{18}
 
-\KAuxFileAt {main.tex}{58}
+\KAuxFileAt {main.tex}{59}
 \KAuxScopeNewInstance {base}{base}{}
 \KAuxScopeNewInstance {document}{document}{base}
 
-\KAuxFileAt {main.tex}{62}
+\KAuxFileAt {main.tex}{63}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-1}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-2}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-3}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-4}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-5}{document}
 
-\KAuxFileAt {main.tex}{81}
+\KAuxFileAt {main.tex}{88}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-6}{document}
-
-\KAuxFileAt {main.tex}{85}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-7}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-8}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-9}{document}
@@ -137,24 +144,53 @@
 \KAuxDeclaredScopeTag {sec: introduction}
 \KAuxNewLinkScopetagInstance {sec: introduction}{document}
 
-\KAuxFileAt {introduction.tex}{3}
+\KAuxFileAt {introduction.tex}{4}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-12}{document}
+
+\KAuxFileAt {introduction.tex}{6}
 \KAuxAutorefTarget {default}{base}{model checking problem}
 
-\KAuxFileAt {introduction.tex}{10}
+\KAuxFileAt {introduction.tex}{11}
+\KAuxErrorKnowledgeUnknown {default}{}{variables}{variables}{\kl }
+
+\KAuxFileAt {introduction.tex}{12}
 \KAuxErrorKnowledgeUnknown {default}{}{vertices}{vertices}{\kl }
 
-\KAuxFileAt {introduction.tex}{29}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-12}{document}
+\KAuxFileAt {introduction.tex}{22}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-13}{document}
+
+\KAuxFileAt {introduction.tex}{31}
+\KAuxErrorKnowledgeUnknown {default}{}{prenex normal form}{prenex normal form}{\kl }
+\KAuxErrorKnowledgeUnknown {default}{}{quantifiers}{quantifiers}{\kl }
+
+\KAuxFileAt {introduction.tex}{37}
+\KAuxErrorKnowledgeUnknown {default}{}{Strong Exponential Time Hypothesis}{Strong Exponential Time Hypothesis}{\kl }
+\KAuxErrorKnowledgeUnknown {default}{}{SETH}{SETH}{\kl }
+
+\KAuxFileAt {introduction.tex}{41}
+\KAuxErrorKnowledgeUnknown {default}{}{Williams--Gao--Impagliazzo's algorithm}{Williams--Gao--Impagliazzo's algorithm}{\kl }
+
+\KAuxFileAt {introduction.tex}{42}
+\KAuxErrorKnowledgeUnknown {default}{}{disjunctive normal form}{disjunctive normal form}{\kl }
+\KAuxErrorKnowledgeUnknown {default}{}{DNF}{DNF}{\kl }
+
+\KAuxFileAt {introduction.tex}{47}
+\KAuxErrorKnowledgeUnknown {default}{}{Tarski's calculus of relations}{Tarski's calculus of relations}{\intro }
+\KAuxErrorKnowledgeUnknown {default}{}{CoR}{CoR}{\reintro }
+
+\KAuxFileAt {introduction.tex}{53}
+\KAuxErrorKnowledgeUnknown {default}{}{matrix multiplication}{matrix multiplication}{\kl }
+\KAuxErrorKnowledgeUnknown {default}{}{relational composition}{relational composition}{\kl }
 \KAuxDeclaredScopeTag {sec: preliminaries}
 \KAuxNewLinkScopetagInstance {sec: preliminaries}{document}
-\KAuxDeclaredScopeTag {sec: conclusion}
-\KAuxNewLinkScopetagInstance {sec: conclusion}{document}
 \KAuxDeclaredScopeTag {thm:FO3-FPT}
 \KAuxNewLinkScopetagInstance {thm:FO3-FPT}{document}
 
-\KAuxFileAt {main.tex}{187}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-13}{document}
-
-\KAuxFileAt {main.tex}{230}
+\KAuxFileAt {fpt.tex}{66}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-14}{document}
+
+\KAuxFileAt {fpt.tex}{109}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-15}{document}
+\KAuxDeclaredScopeTag {sec: conclusion}
+\KAuxNewLinkScopetagInstance {sec: conclusion}{document}
 \KAuxEOF {}

@@ -1,38 +1,59 @@
 \section{Introduction}\label{sec: introduction}
+\begin{yoshiki}
+    TODO: (Below is wip.)
+\end{yoshiki}
 
 The ""model checking problem"" is the following problem:
 \begin{center}
 given both a "sentence" $\fml$ and a "structure" $\struc$, does $\struc \models \fml$ hold?
 \end{center}
-The "model checking problem" for $\fo$ is complete in "PSPACE", unfortunately.
-Nevertheless, the "model checking problem" for $\fo^{k}$ can be decided in $\mathcal{O}(\len{\fml} \cdot n^{k})$ time \cite[Proposition 3.1]{vardiComplexityBoundedvariableQueries1995}
-by a naive bottom-up evaluation algorithm,
+Unfortunately, the "model checking problem" for $\fo$ is complete in "PSPACE".
+Nevertheless, when the number of "variables" is fixed, the "model checking problem" for $\fo^{k}$ can be decided in $\mathcal{O}(\len{\fml} \cdot n^{k})$ time by a naive bottom-up evaluation algorithm (see, "eg", \cite[Proposition 3.1]{vardiComplexityBoundedvariableQueries1995}),
 where $\len{\fml}$ is the length of $\fml$ and $n$ is the number of \kl{vertices} in $\struc$.
+A natural question is 
+\begin{center}
+    Can the complexity be improved from $\mathcal{O}(\len{\fml} \cdot n^{k})$ time?
+\end{center}
 
-
-A natural question is, whether the complexity $\mathcal{O}(\len{\fml} \cdot n^{k})$ time can be improved.
-Williams \cite{williamsFasterDecisionFirstorder2014} gave a positive answer to the question.
-He showed that the complexity can be improved to $\mathcal{O}(n^{\omega})$ time for $\fo^{3}$,\footnote{More precisely, \cite[Theorem 7]{gaoFineGrainedComplexityStrengthenings2019}} where $\omega$ is the exponent of matrix multiplication.
-
-Namely, the problem 
 \begin{yoshiki}
-    On data complexity (formula is fixed and structure is given) \cite{williamsFasterDecisionFirstorder2014}
-    \begin{itemize}
-        \item For $\fo^{3}$, $\mathcal{O}(n^{\omega})$ time,
-        \item For $\fo^{k}$ (where $k \ge 3$), $\mathcal{O}(n^{\omega + k - 3})$ time,
-        \item For $\fo^{k}$ (where $k \ge 9$), $\mathcal{O}(n^{k - 4})$ time.
-    \end{itemize}
-    
-    On combined complexity ()
+    TODO: Parameterized complexity ("eg", \cite{flumParameterizedComplexityTheory2006,flumFixedParameterTractabilityDefinability2001,flumModelCheckingProblemsBasis2005, frickComplexityFirstorderMonadic2004}).
 
-    Parameterized complexity 
+    Parameterized complexity for space complexity \cite{chenParameterizedSpaceComplexity2019}
 \end{yoshiki}
 
-We shed a light the 
-
-
-Related work:
+Williams \cite{williamsFasterDecisionFirstorder2014} gave a positive answer to this question.
+He showed that when $\fml$ is \emph{fixed},
 \begin{itemize}
-    \item \cite{chenParameterizedSpaceComplexity2019}: Space complexity for $\fo^{k}$.
-    \item 
+    \item For $\fo^{3}$ \kl{sentences}\footnote{Precisely, Williams \cite{williamsFasterDecisionFirstorder2014} shows that for $\fo^{k}$ \kl{sentences} in the \emph{"prenex normal form"} (so, the number of occurrences of "quantifiers" is at most $k$),
+    the "model checking problem" is in $\mathcal{O}(n^{k - 3 + \omega})$ time for $k \ge 3$ \cite[Corollary 1.3]{williamsFasterDecisionFirstorder2014},
+    and in $n^{k-1 + o(1)}$ time for $k \ge 9$ \cite[Theorem 1.3]{williamsFasterDecisionFirstorder2014}.
+    Gao and Impagliazzo \cite[Theorem 7]{gaoFineGrainedComplexityStrengthenings2019} claims that
+    the algorithm can be extended for general $\fo^{k}$ \kl{sentences} when $k = 3$.},
+    the "model checking problem" can be decided in $\mathcal{O}(n^{\omega})$ time \cite[Theorem 1.2]{williamsFasterDecisionFirstorder2014}\cite[Theorem 7]{gaoFineGrainedComplexityStrengthenings2019},
+    where $\omega$ is the exponent of matrix multiplication.%
+    
+    \item For $\fo^{k}$ \kl{sentences}\footnote{This claims holds even for $\fo^{k}$ \kl{sentences} in $\exists^{*} \forall$-"prenex normal form".} where $k \ge 4$,
+    if the "model checking problem" can be decided in $\mathcal{O}(n^{k-1-\varepsilon})$ time for some $\varepsilon > 0$,
+    then the "Strong Exponential Time Hypothesis" ("SETH") is false \cite[Corollary 1.4]{williamsFasterDecisionFirstorder2014}.
 \end{itemize}
+
+However when $\fml$ is not fixed,
+the "Williams--Gao--Impagliazzo's algorithm" \cite{williamsFasterDecisionFirstorder2014,gaoFineGrainedComplexityStrengthenings2019} for $\fo^{3}$ \kl{sentences} is $\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega})$ time.
+The exponential blowup "wrt" $\len{\fml}$ is due to that the algorithm requires a transformation to the "disjunctive normal form" ("DNF").
+
+...
+
+In this paper, we first revisit the "Williams--Gao--Impagliazzo's algorithm".
+We give a perspective from ""Tarski's calculus of relations"" (henceforth, \reintro*\kl{CoR}) \cite{tarskiCalculusRelations1941}.
+\dots
+We can translate $\fo^{3}$ \kl{sentences} into \kl{CoR} \kl{sentences} in $\mathcal{O}(2^{\len{\fml}})$ time.
+The original translation is given in \cite{tarskiFormalizationSetTheory1987}.
+An $\mathcal{O}(2^{\len{\fml}})$ time translation is given in \cite{nakamuraExpressivePowerSuccinctness2022}; an implementation of the translation \cite{nakamuraExpressivePowerSuccinctness2020,nakamuraExpressivePowerSuccinctness2022} can be found in \cite{brogniTranslatingFirstOrderPredicate2023}.\footnote{"Williams--Gao--Impagliazzo's algorithm" takes almost the same steps as in the translation in \cite{nakamuraExpressivePowerSuccinctness2022}... (TODO: revise)}
+For \kl{CoR} \kl{sentences}, the "model checking problem" can be decided in $\mathcal{O}(\len{\fml} \cdot n^{\omega})$ time by a naive bottom-up evaluation algorithm,
+where we use the "matrix multiplication" algorithm for the "relational composition" $\compo$.
+Combining them, we have that the "model checking problem" for $\fo^{3}$ \kl{sentences} can be decided in $\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega})$ time.
+
+
+Now, 
+...
+
