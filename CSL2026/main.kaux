@@ -191,6 +191,16 @@
 
 \KAuxFileAt {fpt.tex}{109}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-15}{document}
+\KAuxDeclaredScopeTag {sect: from dominating set}
+\KAuxNewLinkScopetagInstance {sect: from dominating set}{document}
+
+\KAuxFileAt {from_dominating_set.tex}{5}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-16}{document}
+\KAuxDeclaredScopeTag {sec: from cnf}
+\KAuxNewLinkScopetagInstance {sec: from cnf}{document}
+
+\KAuxFileAt {from_cnf.tex}{4}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-17}{document}
 \KAuxDeclaredScopeTag {sec: conclusion}
 \KAuxNewLinkScopetagInstance {sec: conclusion}{document}
 \KAuxEOF {}
