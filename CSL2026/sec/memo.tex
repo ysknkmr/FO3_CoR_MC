@@ -1,0 +1,133 @@
+\section{memo}
+
+\begin{enumerate}
+%   \item 
+%   {\color{gray}
+%   \Ja{メールより}
+%   \begin{myquote}\color{gray}
+% \Ja{あと、 SETHから導かれる}
+% \begin{itemize}
+%   \item \Ja{a) \cite[Corollary 1.4]{williamsFasterDecisionFirstorder2014} の仮説：FOk が $O(n^{k-1-\eps})$ time で解けない}
+%   \item \Ja{b) ①の帰着の仮説：FOk が $poly(|\psi|) n^{k-1-\eps}$ time で解けない}
+%   \item \Ja{c) ②の帰着の仮説：FOk が $poly(|\psi|) n^{k-\eps}$ time で解けない $\#$ $O(|\psi| n^{k-\eps})$ の形よりも SETH にあっていそう？}
+% \end{itemize}
+% \Ja{の３つの仮説について、$a) \Longrightarrow b)$  と $c) \Longrightarrow b)$ はほぼ明らかに成り立つものでした（つまり①の結果は全く無意味でした）。}
+% \end{myquote}
+
+% (2025/07/03)
+
+% \Ja{YN: 上の b) は本当に明らか？ $\to$ Yes (\Cref{proposition: trivial lowerbound}).}}
+
+  \item \Ja{2025/06/25 メールより}
+  \begin{myquote}
+  \Ja{あとは、FO3 が $O(2^{\delta\len{\varphi}} n^\omega)$ time（$\delta < 1$）で解けないことを示せるか？という問題も考えられそうです。
+（これが示せれば $O(2^{\delta\len{\varphi}})$ time の FO3-to-CoR の変換がないこともいえます）}
+  \end{myquote}
+
+  (Open Problem)
+  
+  \item \label{memo: FO4}
+  \Ja{2025/07/04 メールより}
+  \begin{yoshiki}
+    % Williams also shows that the "model checking problem" for $\fo^{k}$ \kl{sentences} in \emph{"prenex normal form"} can be decided in $n^{k-1 + o(1)}$ time for $k \ge 9$ \cite[Theorem 1.3]{williamsFasterDecisionFirstorder2014}.
+    % Later, Gao and Impagliazzo \cite[Theorem 7]{gaoFineGrainedComplexityStrengthenings2019} claims that this algorithm can be extended for general $\fo^{k}$ \kl{sentences}.
+    \begin{myquote}
+    \Ja{ \cite[Theorem 1.3]{williamsFasterDecisionFirstorder2014} の大枠の方針は、CoR変換のコアの部分と似た感じで、$\exists y. P(\vec{x}, y) \land Q(y, \vec{z})$ の形に持っていって、
+    *最も内側の* $\exists$ に対して行列積するというものです。ここで $\vec{x}$ と $\vec{z}$ には以下のような条件を課しておきます。
+    \begin{itemize}
+        \item 共通の変数を持たない
+        \item 次元はおおよそ $(k-1)/2$ ずつに分割されている
+    \end{itemize}
+    この方針を一般に拡張しようとすると、たとえば
+    \[\exists y. P(x_1, x_2, y) \land Q(x_2, x_3, y) \land R(x_3, x_2, y)\] 
+    （ただし、各 $P(x_1, x_2, y)$ はたとえば $\exists z. P'(x_1, z) \land P'(x_2, z) \land P'(z, y)$ のような式）\\
+    みたいな式をどうやって行列積にしますか？という問題が発生しそうです。}
+
+    \Ja{自由変数が高々2の場合（FO3の場合）には、外側の量化子の自由変数を除くと自由変数が高々1つなので、綺麗な分割ができますが、
+そうでなかった場合には、自由変数間の依存が生じるので、行列積に持っていけないのでは？という気がしています。
+\# 逆に言うとこの辺りの計算量をもう少し厳密に考える価値がありそう？}
+    \end{myquote}
+
+    $\bigstar$ \Ja{$k \ge 4$ の時に以下は本当に成り立つか？("cf" \cite[Theorem 7]{gaoFineGrainedComplexityStrengthenings2019})}
+    \begin{itemize}
+    \item the "model checking problem" for $\fo^{k}$ \kl{sentences} \sout{in \emph{"prenex normal form"}} can be decided in $n^{k-1 + o(1)}$ time for $k \ge 9$.\\
+
+    \item the "model checking problem" for $\fo^{k}$ \kl{sentences} \sout{in \emph{"prenex normal form"}} can be decided in $\mathcal{O}(n^{k-3 + \omega})$ time for $k \ge 3$.
+    \begin{itemize}
+      \item \Ja{定数置き換えの方針で、たとえば上の論理式で $x_3$ を定数としても $P(x_1, x_2, y)$ によって行列積にならない（"cf" \Cref{proposition: trivial lowerbound}）}
+      \item \Ja{下の``関連''の方針から高々$k-1$項関係であれば $\mathcal{O}(n^{\omega_{k-1}})$ time は言えるはず。}
+      \begin{itemize}
+        \item \Ja{``$k$次元行列積''をもつ ``$k$-ary CoR'' を考えると同じ議論。}
+        \item \Ja{したがって、$\omega_{k-1} < k$ の仮説（？）のもと $\mathcal{O}(n^{k - \eps})$ time for some $\eps > 0$.}
+        % \item $\omega_{k - 1} + 1 \le \omega_{k}$ (??)
+      \end{itemize}
+    \end{itemize}
+    \end{itemize}
+
+    \Ja{関連（$\fo^{4}$ が$3$項関係をもつ場合、$\mathcal{O}(2^{\len{\fml}} n^{\omega_{3}})$ time。
+    ただし $\omega_{k}$ は以下の``$k$次元行列積''の時間計算量（$k-1 \le \omega_{k} \le k$）（$\omega_2 = \omega$。 $\omega_k < 1$ を満たすかどうかは $k \ge 3$ で open （？））} 
+    \begin{itemize}
+      \item 
+      \cite[Open Problem 2 (p.5)]{williamsFasterDecisionFirstorder2014}
+      \begin{quotation}
+        ``What about for vocabularies with ternary relations?
+        \dots
+        We wish to compute the following 3D matrix in $n^{4-\eps}$ time,
+        for some $\eps > 0$:
+      \[D[i, j, k] = \sum_{\ell = 1}^{n} A[i, j, \ell] \cdot B[j, k, \ell] \cdot C[k, i, \ell].\]
+        ... would allow us to more efficiently find (for example) a 4-clique in a 3-uniform hypergraph,
+        which can be expressed as a first-order sentence over a ternary relation.''
+      \end{quotation}
+
+      \item \cite{legallQuantumAlgorithmsFinding2016}
+      \begin{quotation}
+      ``... no efficient classical algorithm for 4-clique finding has been discovered
+so far.'' 
+      \end{quotation}
+    \end{itemize}
+  \end{yoshiki}
+
+  \item \label{memo: dichotomy}
+  
+  \Ja{2025/6/27 メールより}
+    \begin{myquote}\color{gray}
+      \Ja{（補足）結果を組み合わせると、以下の dichotomy を示せそうです（関係記号の個数,定数記号の個数,等号の有無を考えています）}\\
+      \Ja{【冠頭標準形の FO3 の場合】}
+        \begin{itemize}
+            \item \Ja{一般（＊）： $\poly(|\psi|) N^{3-\eps}$ だとSETHに反する ←  ② と その修正}
+            \Ja{（＊）厳密には、1引数関係記号を$\omega$個含む場合 もしくは 定数記号を$\omega$個含む場合（等号あり） もしくは 2引数関係記号1個以上含むかつ定数記号を$\omega$個含む場合}
+            \item \Ja{関係記号の個数$k$固定： $O(|\psi| N^\omega)$     ←  上里さんの方針}
+            \item \Ja{1引数関係記号$k$個 かつ 定数記号$\omega$個（等号なし）：$\mathcal{O}(|\psi| N^\omega)$    ←  上里さんの方針（+ 定数記号を先に除去）}
+        \end{itemize}
+
+        \Ja{【一般の FO3 の場合】}
+        \begin{itemize}
+            \item \Ja{一般（＊）： $\poly(|\psi|) N^{3-\eps}$ だとSETHに反する ←  ② と その修正}
+            \Ja{（＊）厳密には、1引数関係記号を$\omega$個含む場合 もしくは 定数記号を$\omega$個含む場合（等号あり）  もしくは 2引数関係記号1個以上含む場合}
+            \item \Ja{1引数関係記号$k$個 かつ 定数記号$\omega$個（等号なし）：$\mathcal{O}(|\psi| N^\omega)$    ←  上里さんの方針（+ 定数記号を先に除去 + DNF変換して量化子内側入れの後の論理式 $\exists x \bigwedge_i \alpha_i$ （各 $\alpha_i$ は $P(x)$ or $\lnot P(x)$）が有限通り）}
+            \item \Ja{1引数関係記号$k$個 かつ 定数記号$k'$個（等号あり）：$O(|\psi| N^\omega)$    ←  上里さんの方針（+ DNF変換して量化子内側入れの後の論理式 $\exists x \bigwedge_i \alpha_i$ （各 $\alpha_i$ は $P(x)$, $\lnot P(x)$, $\lnot x =y$, $\lnot x=z$, or $\lnot x=c$）が有限通り）}
+        \end{itemize}
+    \end{myquote}
+    $\leadsto$ \Ja{\textcolor{red}{「定数記号を$\omega$個含む場合（等号あり）」は結論自体誤り。}\footnote{この時、各変数の割当は、定数が指す箇所 $\len{\psi}$ 通り $+$ 定数が指さない場合 $1$ 通りのみを考えれば十分なので $\poly(\len{\psi})$ time。（構造のサイズに依存しない）}}
+
+
+    $\leadsto$ \Ja{ひとまず定数記号を考えず、関係記号の個数と等号の有無を考えるなら以下}
+
+    \Ja{【冠頭標準形の FO3 の場合】}
+    \begin{itemize}
+        \item \Ja{一般（＊）： $\poly(|\psi|) N^{3-\eps}$ だとSETHに反する ←  ② と その修正}\\
+        \Ja{（＊）厳密には、1引数関係記号を$\omega$個含む場合（等号なし）}
+
+        \item \Ja{関係記号の個数$k$固定（等号あり）： $O(|\psi| N^\omega)$     ←  上里さんの方針}
+    \end{itemize}
+
+    \Ja{【一般の FO3 の場合】}
+    \begin{itemize}
+        \item \Ja{一般（＊）： $\poly(|\psi|) N^{3-\eps}$ だとSETHに反する ←  ② と その修正}\\
+        \Ja{（＊）厳密には、1引数関係記号を$\omega$個含む場合（等号なし） もしくは 2引数関係記号1個以上含む場合（等号なし）}
+
+        \item \Ja{1引数関係記号$k$個（等号あり）：$O(|\psi| N^\omega)$    ←  上里さんの方針（+ DNF変換して量化子内側入れの後の論理式 $\exists x \bigwedge_i \alpha_i$ （各 $\alpha_i$ は $P(x)$, $\lnot P(x)$, $\lnot x =y$, $\lnot x=z$）が有限通り）}
+    \end{itemize}
+
+    % \Ja{「定数記号を$\omega$個含む場合（等号あり）」の場合は、）}
+\end{enumerate}

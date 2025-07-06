@@ -1,17 +1,137 @@
-\section{From CNF}\label{sec: from cnf}
-\begin{yoshiki}
-    TODO:
-\end{yoshiki}
-
-\begin{theorem}\label{theorem: SETH CNF}
-    For $k \ge 1$ (TODO: $\ge 3$ is reasonable?),
-    if the "model checking problem" for $\fo^{k}$ \kl{sentences} can be decided in $\poly(\len{\fml}) \cdot n^{k - \varepsilon}$ time for some $\varepsilon > 0$,
-    then "SETH" is false.
+\section{Complexity gap between FO3 and CoR}\label{sec: from cnf}
+% Is the exponential grow up of \Cref{theorem: fo3 model checking} unavoidable?
+A natural question arising from \Cref{theorem: fo3 model checking} is whether there is a faster algorithm without the exponential blowup with respect to the length of the input sentence.
+Namely,
+\begin{center}
+    Can we give an $\poly(\len{\fml}) \cdot n^{3 - \eps}$ time algorithm for the "model checking problem" for $\fo^{3}$?
+\end{center}
+In this section, we answer to this question negatively, assuming "SETH", as follows.
+\begin{theorem}\label{theorem: FO3 model checking hardness}
+    Under "SETH",
+    for any $k \ge 1$ and any $\eps > 0$,\footnote{When $k \le 2$,
+    the "model checking problem" cannot be decided in $\poly(\len{\fml}) \cdot n^{k - \eps}$ time (even when $\fml$ is fixed), as the input adjacent matrix is given by $\Theta(n^2)$ cells (\Cref{proposition: trivial lowerbound}, for a more precise proof).}
+    the "model checking problem" for $\fo^{k}$ "sentences" cannot be decided in $\poly(\len{\fml}) \cdot n^{k - \eps}$ time.
 \end{theorem}
+\Cref{theorem: FO3 model checking hardness} is a direct consequence of the following lemma.
+\begin{lemma}\label{lemma: FO3 model checking hardness}
+    Suppose that there are an integer $k \ge 1$, a function $f$, and an $\eps > 0$ such that
+    the "model checking problem" for $\fo^{k}$ "sentences" is solvable in $\mathcal{O}(f(\len{\fml}) \cdot n^{k - \eps})$ time.
+    Then "CNF"-"SAT" is in $\mathcal{O}(f(\len{\fml}) \cdot 2^{n (1 - \eps/k)})$ time,
+    where $\len{\fml}$ is the "length@@propositional" of the "CNF" $\fml$ and $n$ is the number of "variables@@propositional" in $\fml$.
+\end{lemma}
 \begin{proof}
+    Let $\fml$ be a "CNF" with $n$ "variables@@propositional".
+    "Wlog", assume that $k$ divides $n$.
+    Let $p_1, \dots, p_{n}$ be "variables@@propositional" in $\fml$.
+    We define $\struc$ as the "structure" with $2^{n/k}$ "vertices" and "unary relation symbols" $P_1, \dots, P_{n/k}$ such that 
+    for every distinct pair $\tuple{v, w}$ of "vertices" in $\struc$,
+    there is some "unary relation symbol" $P_i$ such that
+    $v \in P_i^{\struc}$ and $w \not\in P_i^{\struc}$ hold or 
+    $v \not\in P_i^{\struc}$ and $w \in P_i^{\struc}$ hold.
+    We also define $\fml[2]$ as the following $\fo^{k}$ "sentence":
+    \[\exists z_1. \dots \exists z_k. \fml[1]',\]
+    where $\fml[1]'$ is the $\fml$ in which
+    each "variable@@propositional" $p_{kq+r}$ (where $0 \le q < n/k$ and $1 \le r \le k$) has been replaced with the "atomic" "formula" $P_q(z_r)$.
+    For instance, when $\fml$ is the following "CNF" with $6$ "variables@@propositional" $(p_1 \lor p_3) \land (p_5 \lor p_2) \land (p_4 \lor p_6)$,
+    the $\fo^{3}$ "sentence" $\fml[2]$ is given as follows:
+    \[\exists z_1.\exists z_2.\exists z_3. (P_1(z_1) \lor P_1(z_3)) \land (P_2(z_2) \lor P_1(z_2)) \land (P_2(z_1) \lor P_2(z_3)).\]
+    For each "valuation" $\mathfrak{v}$ of $\fml$, 
+    let $\mathfrak{v}'$ be the (unique) "valuation" so that for all $0 \le q < n/k$ and $1 \le r \le k$,
+    $\mathfrak{v}(p_{kq+r})$ is true "iff" $\mathfrak{v}'(z_r) \in P_q^{\struc}$.
+    Then, $\fml$ is true at $\mathfrak{v}$ "iff" $\struc, \mathfrak{v}' \models \fml[1]'$.
+    As the map above is a bijection, we have that $\fml$ is "satisfiable" "iff" $\struc \models \fml[2]$.
+    Thus, by applying the assumption,
+    "CNF"-"SAT" is in $\mathcal{O}(f(\len{\fml}) \cdot (2^{n/k})^{k-\eps})$ time.
 \end{proof}
 
+\begin{yoshiki}
+    TODO: Add a note on succinctness.
+\end{yoshiki}
+
+% Furthermore,
+% \Cref{theorem: FO3 model checking hardness} also shows that there is no polynomial-time translation from $\fo^{3}$ "sentences" to "atomic" "CoR" "formulas".
+% \begin{corollary}\label{corollary: succinceness under SETH}
+%     Under "SETH",
+%     there is no polynomial-time translation from $\fo^{3}$ "sentences" to "atomic" "CoR" "formulas".
+% \end{corollary}
 % \begin{proof}
-%     Given a \kl{boolean formula} $\fml$ in the "conjunctive normal form" ("CNF"),
-%     Given a \fo^{3} \kl{sentence} $\fml$ in,
+%     If there is a polynomial-time translation from $\fo^{3}$ "sentences" to "CoR" "formulas",
+%     then by \Cref{proposition: CoR model checking}, the "model checking problem" for $\fo^{k}$ "sentences" is solvable in $\poly(\len{\fml}) \cdot n^{\omega}$ time,
+%     but this contradicts \Cref{theorem: FO3 model checking hardness} (as $\omega < 3$).
+% \end{proof}
+% Similar to \Cref{corollary: succinceness under SETH},
+% the following question is raised in \cite{nakamuraExpressivePowerSuccinctness2022}.
+% \begin{conjecture}[\cite{nakamuraExpressivePowerSuccinctness2022}]\label{conjecture: succinceness CoR}
+%     There is no polynomial-size translation from $\fo^{3}$ "sentences" to "atomic" "CoR" "formulas".
+% \end{conjecture}
+
+Moreover, the result above still holds even over the "signature" with exactly one binary relation symbol.
+\begin{sideyoshiki}
+\Cref{theorem: FO3 model checking hardness 1 binary} uses non-"PNF" "formulas".
+\end{sideyoshiki}
+\begin{theorem}\label{theorem: FO3 model checking hardness 1 binary}
+    Under "SETH",
+    for any $k \ge 1$ and any $\eps > 0$,\footnote{When $k \le 2$,
+    the "model checking problem" cannot be decided in $\poly(\len{\fml}) \cdot n^{k - \eps}$ time (even when $\fml$ is fixed), as the input adjacent matrix is given by $\Theta(n^2)$ cells (\Cref{proposition: trivial lowerbound}, for a more precise proof).}
+    the "model checking problem" for $\fo^{k}$ "sentences" with exactly one binary relation symbol $E$ cannot be decided in $\poly(\len{\fml}) \cdot n^{k - \eps}$ time.
+\end{theorem}
+\Cref{theorem: FO3 model checking hardness 1 binary} is a direct consequence of the following lemma.
+\begin{lemma}\label{lemma: FO3 model checking hardness 1 binary}
+    Suppose that there is an integer $k \ge 2$ and an $\eps > 0$ such that
+    the "model checking problem" for $\fo^{k}$ "sentences" with exactly one binary relation symbol $E$ is solvable in $\poly(\len{\fml}) \cdot n^{k - \eps}$ time. 
+    Then "CNF"-"SAT" is in $\poly(\len{\fml}) \cdot 2^{n (1 - \eps/k)}$ time,
+    where $\len{\fml}$ is the "length@@propositional" of the "CNF" $\fml$ and $n$ is the number of "variables@@propositional" in $\fml$.
+\end{lemma}
+\begin{proof}
+    Let $\fml$ be a "CNF" with $n$ "variables@@propositional".
+    "Wlog", assume that $k$ divides $n$.
+    Let $p_1, \dots, p_{n}$ be "variables@@propositional" in $\fml$.
+    We define the "structure" $\struc$ as follows:
+    \begin{itemize}
+        \item $\univ{\struc} \defeq (\set{\mathrm{V}} \times \range{0, 2^{n/k}-1}) \uplus (\set{\mathrm{E}} \times \range{1, n/k})$; we write $v^{\mathrm{V}}$ for $\tuple{\mathrm{V}, v}$ (similarly for $v^{\mathrm{E}}$).
+        \item $E^{\struc} \defeq \set{\tuple{v^{\mathrm{V}}, w^{\mathrm{E}}} \mid v \in \range{0, 2^{n/k}-1}, w \in \range{1, n/k}, \text{ and the $w$-th bit of $v$ is 1}} \cup \set{\tuple{w^{\mathrm{E}}, (w+1)^{\mathrm{E}}} \mid w \in \range{1, n-1}} \cup \set{\tuple{n^{\mathrm{E}}, n^{\mathrm{E}}}}$.
+    \end{itemize}
+    We also define $\fml[2]$ as the following $\fo^{k}$ "sentence":
+    \[\exists z_1. \dots \exists z_k. \fml[1]',\]
+    where $\fml[1]'$ is the $\fml$ in which
+    each "variable@@propositional" $p_{kq+r}$ (where $0 \le q < n/k$ and $1 \le r \le k$) has been replaced with
+    the  $\fo^{2}$  "formula" $X_q(z_r)$ defined as follows:
+    \[X_q(z) \defeq \begin{cases}
+        E(z, z) & \text{if $q = 0$,}\\
+        \exists z'. E(z, z') \land X_{q-1}(z') & \text{if $q > 0$ where $z'$ is a "variable" not equal to $z$}.
+    \end{cases}\]
+    Note that $X_q(z_r)$ is "semantically equivalent" to the "CoR" "formula" $(E^{q} (E \cap \id))^{\dom}(z_r, z_r)$.
+
+    For instance when $k = 3$, the "variable@@propositional" $p_{2 \cdot 1 + 3}$ is 
+    transformed to the following "formula":
+    \[\exists z'. E(z_3, z') \land (\exists z''. E(z', z'') \land E(z'', z'')).\]
+    For each "valuation@@propositional" $\mathfrak{v}$ of $\fml$, 
+    we can take a "valuation" $\mathfrak{v}'$ of $\fml'$ so that for all $0 \le q < n/k$ and $1 \le r \le k$,
+    $\mathfrak{v}(p_{kq+r})$ is true "iff" $\struc, \mathfrak{v}' \models X_q(z_r)$.
+    Then, $\fml$ is true at $\mathfrak{v}$ "iff" $\struc, \mathfrak{v}' \models \fml[1]'$.
+    Conversely, for each "valuation" $\mathfrak{v}'$ of $\fml'$, we can take a "valuation@@propositional" $\mathfrak{v}$ of $\fml$ so that
+    $\fml$ is true at $\mathfrak{v}$ "iff" $\struc, \mathfrak{v}' \models \fml[1]'$.
+    Thus, we have that $\fml$ is "satisfiable" "iff" $\struc \models \fml[2]$.
+    Thus, by applying the assumption,
+    "CNF"-"SAT" is in $\poly(n/k \cdot \len{\fml}) \cdot (2^{n/k} + n/k)^{k-\eps}$ time.%
+    As $n \le \len{\fml}$, this implies $\poly(\len{\fml}) \cdot 2^{n(1-\eps/k)}$.
+\end{proof}
+
+\begin{yoshiki}
+    TODO: Add a dichotomy (\Ja{メモ \ref{memo: dichotomy}}) in some section.
+\end{yoshiki}
+
+% \begin{yoshiki}
+%     TODO: Add a remark on the reduction using "$k$-dominating set" \cite{patrascuPossibilityFasterSAT2010} (?) 
+% \end{yoshiki}
+
+% One approach is based on to use the reduction from "CNF-SAT" to "$4$-dominating set" of \cite[Corollary 1.4]{williamsFasterDecisionFirstorder2014}.
+% \begin{proposition}\label{proposition: SETH dominating set}
+%     If the "model checking problem" for $\fo^{k}$ \kl{sentences} can be decided in $\poly(\len{\fml}) \cdot n^{k - 1 - \varepsilon}$ time for some $k \ge 4$ and some $\varepsilon > 0$,\footnote{When $k \le 3$,
+%     the "model checking problem" cannot be decided in $\poly(\len{\fml}) \cdot n^{k - \varepsilon}$ time (even when $\fml$ is fixed), as the input adjacent matrix is given by $\Theta(n^2)$ cells (\Cref{proposition: trivial lowerbound}, for a more precise proof).}
+%     then "SETH" is false.
+% \end{proposition}
+% \begin{proof}
+%     By \cite[Theorem 2.1]{patrascuPossibilityFasterSAT2010}\cite[Corollary 1.4]{williamsFasterDecisionFirstorder2014},
+%     the "model checking problem" for $\fo^{k}$ \kl{sentences} can be reduced to the "$k$-dominating set" problem.
 % \end{proof}

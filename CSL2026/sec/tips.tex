@@ -1,0 +1,226 @@
+
+\section{Tips}
+
+\subsection{Trivial Results}
+
+\begin{proposition}[Almost trivial fact]\label{proposition: trivial lowerbound}
+  Let $\fml_0$ be the following $\fo^{k}$ "sentence":
+  \[\exists x_1. \dots \exists x_k. R(x_1, \dots, x_k).\]
+  Then for any $\eps > 0$,
+  the "model checking problem" where the "sentence" is fixed to $\fml_0$
+  cannot be decided in $\mathcal{O}(n^{k - \eps})$ time (without any assumptions).
+\end{proposition}
+\begin{proof}
+  (Below, we suppose that we can access to at most one cell in each step.)
+  Towards a contradiction, 
+  assume that for some $M$,
+  there is an $M n^{k - \eps}$ time RAM model $\mathcal{M}$ solving the "model checking problem" (for sufficiently large $n$).
+  Then, a sufficiently large $n_0 > n$ satisfies $M n_0^{k - \eps} < n_0^{k}$.
+
+  Let $\struc$ be the \kl{structure} with $n_0$ \kl{vertices} such that $R^{\struc} = \emptyset$.
+  We consider the run $\rho$ of $\mathcal{M}$ when the input is $\struc$.
+  In the run $\rho$ (of time at most $M n^{k - \eps}$), as $M n_0^{k - \eps} < n_0^{k}$,
+  there is an input cell $c$ for asserting $\tuple{v_1, \dots, v_k} \in R^{\struc}$ such that $\rho$ does not access $c$.
+  We then define $\struc[2]$ as the \kl{structure} $\struc$ in which $R^{\struc[2]}$ has been replaced with the singleton set $\set{\tuple{v_1, \dots, v_k}}$.
+  When $\struc[2]$ is input, the run is the same as $\rho$, as the cell $c$ is not accessed in $\rho$.
+  Hence, in $\mathcal{M}$, the output of $\struc[2]$ is also the same as that of $\struc$, reaching a contradiction.
+  (When $\struc[1]$ is input, the output should be ``no''. When $\struc[2]$ is input, the output should be ``yes''.)
+\end{proof}
+
+\begin{yoshiki}
+  \Ja{同様の議論がある論文/本からの引用などで簡単に済ませたい。}\\
+
+  \Ja{とくに３項関係記号をもつ $\fo^{3}$ は、$\mathcal{O}(n^{3 - \eps})$ で解けない（行列積で解けるのは２項関係記号の時）。}
+\end{yoshiki}
+
+\begin{proposition}\label{proposition: unary}
+  The "model checking problem" for $\fo^{k}$ with only "unary relation symbols" (without "equality")
+  is solvable in $\mathcal{O}(n)$ time.
+\end{proposition}
+\begin{proof}[Proof Sketch]
+  In this case, by taking the "DNF", we can transform each "subformula" of the form $\exists x. \fml$ into the following form: $\exists x. \bigwedge_{i} P_i(x)$.
+  Thus, each "subformula" has at most one "free variable".
+  Hence, by the naive evaluation algorithm, we have obtained $\mathcal{O}(n)$ time.
+\end{proof}
+
+\subsection{Summary}
+\begin{center}
+  \begin{tabular}{c|c|c|c}
+    Problem / max. arity $k$ & 1 & 2 & 3\\
+    \hline
+    \multirow{2}{*}{\begin{tabular}{c}
+    "PNF" $\fo^{3}$ (data)\\
+    $\fo^{3}$ (data)
+    \end{tabular}} & $\mathcal{O}(n)$ (\Cref{proposition: unary}) & $\mathcal{O}(n^{\omega})$ \cite{williamsFasterDecisionFirstorder2014} & $\mathcal{O}(n^{3})$ (trivial)\\  
+    \cline{2-4}
+    & \multicolumn{3}{c}{no $\mathcal{O}(n^{k-\eps})$ (\Cref{proposition: trivial lowerbound})}\\
+    \hline
+    \multirow{2}{*}{\begin{tabular}{c}
+    "PNF" $\fo^{3}$ (combined)\\
+    $\fo^{3}$ (combined)
+    \end{tabular}} 
+    & \begin{tabular}{c}
+        $\mathcal{O}(\len{\fml} \cdot n^{3})$ (trivial) \\
+        $\mathcal{O}(2^{\len{\fml}} \cdot n)$ (\Cref{proposition: unary})
+    \end{tabular}
+    &  \begin{tabular}{c}
+    $\mathcal{O}(\len{\fml} \cdot n^{3})$ (trivial)\\
+    $\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega})$ \cite{williamsFasterDecisionFirstorder2014,nakamuraExpressivePowerSuccinctness2022}
+    \end{tabular}
+    & $\mathcal{O}(\len{\fml} \cdot n^{3})$ (trivial)\\
+    \cline{2-4}
+    & \multicolumn{3}{c}{no $\poly(\len{\fml}) \cdot n^{3 - \eps}$, under "SETH" (\Cref{theorem: FO3 model checking hardness})}\\  
+  \end{tabular}
+\end{center}
+
+\Ja{（以下おまけ）}
+\begin{center}
+\scalebox{.7}{
+  \begin{tabular}{c|c|c|c|c}
+    Problem / max. arity $k$ & 1 & 2 & 3 & 4\\
+    \hline
+    \multirow{2}{*}{\begin{tabular}{c}
+    "PNF" $\fo^{4}$ (data)\\
+    $\fo^{4}$ (data)
+    \end{tabular}} & $\mathcal{O}(n)$ (\Cref{proposition: unary}) & 
+    \begin{tabular}{c}
+        \textcolor{red}{$\mathcal{O}(n^{1 + \omega})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{4}$) \\
+        \textcolor{red}{$\mathcal{O}(n^{\omega_3})$} \\
+    \end{tabular}
+     & \textcolor{red}{$\mathcal{O}(n^{\omega_3})$} & $\mathcal{O}(n^{4})$ (trivial) \\  
+    \cline{2-5}
+    & no $\mathcal{O}(n^{1-\eps})$ (\Cref{proposition: trivial lowerbound}) &
+    no $\mathcal{O}(n^{3-\eps})$ under "SETH" \cite[Cor.\ 1.4]{williamsFasterDecisionFirstorder2014} &
+    \multicolumn{2}{c}{no $\mathcal{O}(n^{k-\eps})$ (\Cref{proposition: trivial lowerbound})}\\
+    \hline
+    \multirow{2}{*}{\begin{tabular}{c}
+    "PNF" $\fo^{4}$ (combined)\\
+    $\fo^{4}$ (combined)
+    \end{tabular}}
+    & \begin{tabular}{c}
+        $\mathcal{O}(\len{\fml} \cdot n^{4})$ (trivial)\\
+        $\mathcal{O}(2^{\len{\fml}} \cdot n)$ (\Cref{proposition: unary})
+    \end{tabular}
+    & \begin{tabular}{c}
+        $\mathcal{O}(\len{\fml} \cdot n^{4})$ (trivial)\\
+        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{1 + \omega})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{4}$)\\
+        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_3})$}
+    \end{tabular}
+    & \begin{tabular}{c}
+        $\mathcal{O}(\len{\fml} \cdot n^{4})$ (trivial)\\
+        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_3})$}
+    \end{tabular}
+    & $\mathcal{O}(\len{\fml} \cdot n^{4})$ (trivial)\\
+    \cline{2-5}
+    & \multicolumn{4}{c}{no $\poly(\len{\fml}) \cdot n^{4 - \eps}$, under "SETH" (\Cref{theorem: FO3 model checking hardness})}\\  
+  \end{tabular}
+}
+\end{center}
+
+
+\begin{center}
+\scalebox{.6}{
+  \begin{tabular}{c|c|c|c|c|c}
+    Problem / max. arity $k$ & 1 & 2 & 3 & 4 & 5\\
+    \hline
+    \multirow{2}{*}{\begin{tabular}{c}
+    "PNF" $\fo^{5}$ (data)\\
+    $\fo^{5}$ (data)
+    \end{tabular}} & $\mathcal{O}(n)$ (\Cref{proposition: unary}) & 
+    \begin{tabular}{c}
+        \textcolor{red}{$\mathcal{O}(n^{2 + \omega})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{5}$) \\
+        \textcolor{red}{$\mathcal{O}(n^{1 + \omega_3})$} (?? for $\fo^{5}$) \\
+        \textcolor{red}{$\mathcal{O}(n^{\omega_4})$} \\
+    \end{tabular}
+    & \begin{tabular}{c}
+        \textcolor{red}{$\mathcal{O}(n^{1 + \omega_3})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{5}$) \\
+        \textcolor{red}{$\mathcal{O}(n^{\omega_4})$} \\
+    \end{tabular} & \textcolor{red}{$\mathcal{O}(n^{\omega_4})$} & $\mathcal{O}(n^{5})$ (trivial) \\  
+    \cline{2-6}
+    & no $\mathcal{O}(n^{1-\eps})$ (\Cref{proposition: trivial lowerbound}) &
+    \multicolumn{2}{c}{no $\mathcal{O}(n^{4-\eps})$ under "SETH" \cite[Cor.\ 1.4]{williamsFasterDecisionFirstorder2014}} &
+    \multicolumn{2}{c}{no $\mathcal{O}(n^{k-\eps})$ (\Cref{proposition: trivial lowerbound})}\\
+    \hline
+    \multirow{2}{*}{\begin{tabular}{c}
+    "PNF" $\fo^{5}$ (combined)\\
+    $\fo^{5}$ (combined)
+    \end{tabular}}
+    & \begin{tabular}{c}
+        $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
+        $\mathcal{O}(2^{\len{\fml}} \cdot n)$ (\Cref{proposition: unary})
+    \end{tabular}
+    & \begin{tabular}{c}
+        $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
+        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{2 + \omega})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{5}$)\\
+        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{1 + \omega_3})$} (?? for $\fo^{5}$)\\
+        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_4})$}
+    \end{tabular}
+    & \begin{tabular}{c}
+        $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
+        \textcolor{red}{$\mathcal{O}(n^{1 + \omega_3})$} (?? for $\fo^{5}$)\\
+        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_4})$}
+    \end{tabular}
+    & 
+    \begin{tabular}{c}
+        $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
+        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_4})$}
+    \end{tabular}
+    &
+    \begin{tabular}{c}
+        $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
+    \end{tabular}\\
+    \cline{2-6}
+    & \multicolumn{5}{c}{no $\poly(\len{\fml}) \cdot n^{5 - \eps}$, under "SETH" (\Cref{theorem: FO3 model checking hardness})}\\ 
+  \end{tabular}
+}
+\end{center}
+
+\begin{yoshiki}
+\begin{itemize}
+    \item \Ja{?? は主張が不明/怪しい箇所（メモ\ref{memo: FO4}参照）}
+    \begin{itemize}
+        \item \Ja{主張が成り立たなそうであることを言うには、}\\
+        \Ja{Binary $\fo^{4}$ is in $\mathcal{O}(n^{4 - \eps})$ time $\Longrightarrow$ $\omega_{3} < 4$ を言えればよさそう} (Open Problem)
+    \end{itemize}
+    \item \Ja{赤の箇所は未証明}
+\end{itemize}
+\end{yoshiki}
+
+
+% \subsection{An Efficient "CNF"-"SAT"}
+% We say that a "CNF" with $n$ \kl(propositional){variables} is ""$k$-decomposable"" if
+% there exists a $k$-partition $V_1, \dots, V_k$ of the \kl(propositional){variables} 
+% such that
+% \begin{itemize}
+%   \item $\#V_i = n/k$,
+%   \item for each "clause", there is some $V_i$ such that the "clause" has no \kl(propositional){variables} in $V_i$.
+% \end{itemize}
+% ""$k$-decomposed-CNF-SAT"" is defined as the following problem:
+% given a "$k$-decomposable" "CNF" $\fml$ with its $k$-partition $V_1, \dots V_k$ witness for "$k$-decomposable",
+% is the "CNF" $\fml$ "satisfiable"?
+
+% \begin{proposition}\label{proposition: 3-decomposed-CNF-SAT}
+%   "$k$-decomposed-CNF-SAT" is in $\mathcal{O}(2^{\omega_{k-1}/k \cdot n} \cdot m)$ time,
+%   where $\omega_{k-1}$ is the exponent of $(k-1)$-dimension matrix multiplication.\begin{sideyoshiki}\Ja{メモ\ref{memo: FO4} 参照}\end{sideyoshiki}
+% \end{proposition}
+% \begin{proof}[Proof Sketch]
+%   This reduction is inspired by the reduction from "CNF"-"SAT" to the "$k$-dominating set" \cite{patrascuPossibilityFasterSAT2010}.
+%   The "$k$-dominating set" is expressed as the $\fo^{k+1}$ "model checking problem" where 
+%   the "sentence" is fixed as follows:
+%   \[\exists z_1. \dots \exists z_k. \forall w. \bigvee_{i = 1}^{k} E(z_i, w).\]
+%   In particular for "$k$-decomposed"-"CNF",
+%   we can reduce into the $\fo^{k}$ "model checking problem"
+%   where the "sentence" is fixed as follows:
+%   \begin{align*}
+%     &\exists z_1. \dots. \exists z_k. \bigwedge_{i = 1}^{k} (\forall z_i. P_{V_i}(z_i) \to \bigvee_{j \in \range{1, k}; j \neq i}E(z_j, z_i)).
+%   \end{align*}
+%   Here, $P_{V_i}(z_i)$ expresses that the "clause" indicated by $z_i$ has no \kl(propositional){variables} in $V_i$.
+% \end{proof}
+
+% \begin{yoshiki}
+%   \Ja{"CNF"-"SAT" が $2^{\delta n} \poly(m)$ で解けないという仮説 (\Cref{conjecture: CNF-SAT})}\\
+%   \Ja{に対して、"$3$-decomposed" ならば $2^{\delta n} \poly(m)$ で解ける}\\
+%   \Ja{一般に $\omega_{k-1} < k$ の、"$k$-decomposed" に対して $2^{\delta n} \poly(m)$ で解ける}
+
+%   \Ja{（メモ \ref{memo: FO4} の hardness（$\mathcal{O}(n^{k-\eps})$の非存在）側を考えていた時の失敗作です。 $V_1, \dots, V_k$ を与える必要があるので、そんなに面白みはないのかもしれません）}
+% \end{yoshiki}

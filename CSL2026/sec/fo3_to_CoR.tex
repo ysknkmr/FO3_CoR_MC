@@ -1,0 +1,55 @@
+\section{Faster FO3 model checking and the FO3-to-CoR translation}\label{sec: fo3 to CoR}
+
+
+\begin{yoshiki}
+TODO: Give an outline of the translation \cite{nakamuraExpressivePowerSuccinctness2022}.
+\end{yoshiki}
+
+For instance, when $\fml$ is the following $\fo^{3}$ "sentence"
+\[\exists y. ((P(x, y) \lor Q(y, z)) \land R(x, y)) \land S(x, z),\]
+we can translate $\fml$ into the "CoR" "formula" as follows:
+\begin{align*}
+& \exists y. ((P(x, y) \lor Q(y, z)) \land R(x, y)) \land S(x, z)\\
+& \leadsto \exists y. (P(x, y) \land R(x, y) \land S(x, z)) \lor (Q(y, z) \land R(x, y) \land S(x, z)) \tag{taking the "DNF"}\\
+& \leadsto ((\exists y. P(x, y) \land R(x, y)) \land S(x, z)) \lor ((\exists y. Q(y, z) \land R(x, y)) \land S(x, z)) \tag{pushing quantifiers}\\
+& \leadsto (((P \intersection R) \compo \top)(x, z) \land S(x, z)) \lor ((R \compo Q)(x, z) \land S(x, z)) \tag{translating into "CoR" (intermediate)}\\
+& \leadsto ((((P \intersection R) \compo \top) \intersection S) \union ((R \compo Q) \intersection S))(x, z). \tag{translating into "CoR"}
+\end{align*}
+
+\begin{proposition}[{\cite{nakamuraExpressivePowerSuccinctness2022}}]\label{proposition: fo3 to atomic CoR}
+    There is an $\mathcal{O}(2^{\len{\fml}})$-time translation
+    from an $\fo^{3}$ "formula" $\fml$ with at most two free \kl{variables}
+    into an "atomic" "CoR" "formula" "semantically equivalent" to $\fml$.
+\end{proposition}
+
+% Below is a slight extension of the translation above.
+% \begin{proposition}\label{proposition: fo3 to quantifier-free CoR}
+%     There is an $\mathcal{O}(2^{\len{\fml}})$-time translation
+%     from an $\fo^{3}$ "formula" $\fml$
+%     into a "quantifier-free" "CoR" "formula" "semantically equivalent" to $\fml$.
+% \end{proposition}
+% \begin{proof}
+%     For each subformula of the form $\mathcal{Q} x. \fml[2]$ such that the quantifier appears at the outermost in $\fml$,
+%     we apply \Cref{proposition: fo3 to atomic CoR}.
+%     For instance, when $\fml$ is $(\exists y. E(x, y) \land E(y, z)) \lor (\forall x. E(y, x) \lor E(x, z))$,
+%     we can translate this "formula" into $(E \compo E)(x, z) \lor (E \dagger E)(y, z)$.
+% \end{proof}
+
+Hence, combining with \Cref{proposition: CoR model checking}, we have obtained Williams' result for $k = 3$, via the $\fo^{3}$-to-"CoR" translation.
+\begin{theorem}\label{theorem: fo3 model checking}
+    The "model checking problem" for $\fo^{3}$ "sentences" can be decided in $\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega})$ time.
+\end{theorem}
+\begin{proof}
+    Given an $\fo^{3}$ "sentence" $\fml$,
+    we can translate $\fml$ into an "atomic" "CoR" "formula" $\fml'$ in $\mathcal{O}(2^{\len{\fml}})$ time (\Cref{proposition: fo3 to atomic CoR}).
+    The "size" of $\fml'$ is also $\mathcal{O}(2^{\len{\fml}})$.
+    Hence, by \Cref{proposition: CoR model checking}, we have obtained an $\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega})$ time algorithm.
+\end{proof}
+By \Cref{proposition: CoR model checking,theorem: fo3 model checking},
+when the input "formula" is given by "CoR" instead of $\fo^{3}$, the "model checking problem" is exponentially more efficiently solvable.
+
+
+% \begin{yoshiki}
+%     TODO: 
+%     Extending to $\fo^{k}$ "sentences" (??)
+% \end{yoshiki}

@@ -14,17 +14,26 @@
 \KAuxCommand \KAuxUseKnowledge {mmm}{Package knowledge: Identifies the use of some knowledge. Arguments {namespace}{instance}{knowledge}.}
 
 
-\KAuxFileAt {macros.tex}{8}
+\KAuxFileAt {macros.tex}{17}
 \KAuxAutoref {default}{base}{\poly }
 
-\KAuxFileAt {macros.tex}{38}
+\KAuxFileAt {macros.tex}{49}
 \KAuxAutoref {default}{base}{\union }
 
-\KAuxFileAt {macros.tex}{39}
+\KAuxFileAt {macros.tex}{50}
 \KAuxAutoref {default}{base}{\intersection }
 
-\KAuxFileAt {macros.tex}{40}
+\KAuxFileAt {macros.tex}{51}
 \KAuxAutoref {default}{base}{\compo }
+
+\KAuxFileAt {macros.tex}{52}
+\KAuxAutoref {default}{base}{\id }
+
+\KAuxFileAt {macros.tex}{53}
+\KAuxAutoref {default}{base}{\emp }
+
+\KAuxFileAt {macros.tex}{54}
+\KAuxAutoref {default}{base}{\dom }
 
 \KAuxFileAt {abbreviations.tex}{1}
 
@@ -80,11 +89,17 @@
 
 \KAuxFileAt {abbreviations.tex}{36}
 
-\KAuxFileAt {abbreviations.tex}{38}
+\KAuxFileAt {abbreviations.tex}{37}
 
 \KAuxFileAt {abbreviations.tex}{39}
 
 \KAuxFileAt {abbreviations.tex}{40}
+
+\KAuxFileAt {abbreviations.tex}{42}
+
+\KAuxFileAt {abbreviations.tex}{43}
+
+\KAuxFileAt {abbreviations.tex}{44}
 
 \KAuxFileAt {complexity.tex}{1}
 
@@ -98,118 +113,345 @@
 
 \KAuxFileAt {complexity.tex}{7}
 
+\KAuxFileAt {paper.tex}{1}
+
 \KAuxFileAt {paper.tex}{2}
+\KAuxAutoref {default}{base}{SETH}
 
 \KAuxFileAt {paper.tex}{3}
-\KAuxAutoref {default}{base}{model checking problem}
 
-\KAuxFileAt {paper.tex}{4}
+\KAuxFileAt {paper.tex}{5}
 
-\KAuxFileAt {paper.tex}{7}
-
-\KAuxFileAt {paper.tex}{8}
-\KAuxAutoref {default}{base}{structure}
-
-\KAuxFileAt {paper.tex}{9}
+\KAuxFileAt {paper.tex}{6}
+\KAuxAutoref {default}{base}{Williams' algorithm}
 
 \KAuxFileAt {paper.tex}{12}
 
 \KAuxFileAt {paper.tex}{13}
-\KAuxAutoref {default}{base}{formula}
+\KAuxAutoref {default}{base}{model checking problem}
 
 \KAuxFileAt {paper.tex}{14}
 
 \KAuxFileAt {paper.tex}{16}
 
 \KAuxFileAt {paper.tex}{17}
-\KAuxAutoref {default}{base}{sentence}
+\KAuxAutoref {default}{base}{signature}
 
 \KAuxFileAt {paper.tex}{18}
 
-\KAuxFileAt {main.tex}{59}
+\KAuxFileAt {paper.tex}{19}
+
+\KAuxFileAt {paper.tex}{20}
+
+\KAuxFileAt {paper.tex}{22}
+
+\KAuxFileAt {paper.tex}{23}
+\KAuxAutoref {default}{base}{structure}
+
+\KAuxFileAt {paper.tex}{24}
+
+\KAuxFileAt {paper.tex}{26}
+
+\KAuxFileAt {paper.tex}{27}
+\KAuxAutoref {default}{base}{universe}
+
+\KAuxFileAt {paper.tex}{29}
+
+\KAuxFileAt {paper.tex}{30}
+\KAuxAutoref {default}{base}{vertices}
+
+\KAuxFileAt {paper.tex}{31}
+
+\KAuxFileAt {paper.tex}{33}
+
+\KAuxFileAt {paper.tex}{34}
+\KAuxAutoref {default}{base}{variable}
+
+\KAuxFileAt {paper.tex}{35}
+
+\KAuxFileAt {paper.tex}{36}
+\KAuxUndeclaredScopeTag {fo}
+
+\KAuxFileAt {paper.tex}{37}
+
+\KAuxFileAt {paper.tex}{39}
+
+\KAuxFileAt {paper.tex}{40}
+\KAuxAutoref {default}{base}{formula}
+
+\KAuxFileAt {paper.tex}{41}
+
+\KAuxFileAt {paper.tex}{43}
+
+\KAuxFileAt {paper.tex}{44}
+\KAuxAutoref {default}{base}{sentence}
+
+\KAuxFileAt {paper.tex}{45}
+
+\KAuxFileAt {paper.tex}{47}
+
+\KAuxFileAt {paper.tex}{48}
+\KAuxAutoref {default}{base}{prenex normal form}
+
+\KAuxFileAt {paper.tex}{49}
+
+\KAuxFileAt {paper.tex}{54}
+
+\KAuxFileAt {paper.tex}{55}
+\KAuxAutoref {default}{base}{Tarski's calculus of relations}
+
+\KAuxFileAt {paper.tex}{56}
+
+\KAuxFileAt {paper.tex}{58}
+
+\KAuxFileAt {paper.tex}{59}
+\KAuxAutoref {default}{base}{composition}
+
+\KAuxFileAt {paper.tex}{60}
+
+\KAuxFileAt {paper.tex}{65}
+
+\KAuxFileAt {paper.tex}{66}
+\KAuxAutoref {default}{base}{CNF}
+
+\KAuxFileAt {paper.tex}{67}
+
+\KAuxFileAt {paper.tex}{69}
+
+\KAuxFileAt {paper.tex}{70}
+\KAuxAutoref {default}{base}{DNF}
+
+\KAuxFileAt {paper.tex}{71}
+
+\KAuxFileAt {paper.tex}{73}
+
+\KAuxFileAt {paper.tex}{74}
+\KAuxAutoref {default}{base}{SAT}
+
+\KAuxFileAt {paper.tex}{76}
+
+\KAuxFileAt {paper.tex}{77}
+\KAuxUndeclaredScopeTag {propositional}
+\KAuxAutoref {default}{explicit-scope:propositional}{formula}
+
+\KAuxFileAt {paper.tex}{78}
+
+\KAuxFileAt {paper.tex}{80}
+
+\KAuxFileAt {paper.tex}{81}
+\KAuxAutoref {default}{explicit-scope:propositional}{variable}
+
+\KAuxFileAt {paper.tex}{82}
+
+\KAuxFileAt {paper.tex}{84}
+
+\KAuxFileAt {paper.tex}{85}
+\KAuxAutoref {default}{base}{clause}
+
+\KAuxFileAt {paper.tex}{86}
+
+\KAuxFileAt {paper.tex}{87}
+
+\KAuxFileAt {paper.tex}{88}
+
+\KAuxFileAt {paper.tex}{90}
+
+\KAuxFileAt {paper.tex}{91}
+\KAuxAutoref {default}{explicit-scope:propositional}{length}
+
+\KAuxFileAt {main.tex}{61}
 \KAuxScopeNewInstance {base}{base}{}
 \KAuxScopeNewInstance {document}{document}{base}
 
-\KAuxFileAt {main.tex}{63}
+\KAuxFileAt {main.tex}{65}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-1}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-2}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-3}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-4}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-5}{document}
-
-\KAuxFileAt {main.tex}{88}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-6}{document}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-7}{document}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-8}{document}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-9}{document}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-10}{document}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-11}{document}
 \KAuxDeclaredScopeTag {sec: introduction}
 \KAuxNewLinkScopetagInstance {sec: introduction}{document}
 
-\KAuxFileAt {introduction.tex}{4}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-12}{document}
+\KAuxFileAt {introduction.tex}{35}
+\KAuxErrorKnowledgeUnknown {default}{}{quantifier-width}{quantifier-width}{\kl }
 
-\KAuxFileAt {introduction.tex}{6}
-\KAuxAutorefTarget {default}{base}{model checking problem}
-
-\KAuxFileAt {introduction.tex}{11}
-\KAuxErrorKnowledgeUnknown {default}{}{variables}{variables}{\kl }
-
-\KAuxFileAt {introduction.tex}{12}
-\KAuxErrorKnowledgeUnknown {default}{}{vertices}{vertices}{\kl }
-
-\KAuxFileAt {introduction.tex}{22}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-13}{document}
-
-\KAuxFileAt {introduction.tex}{31}
-\KAuxErrorKnowledgeUnknown {default}{}{prenex normal form}{prenex normal form}{\kl }
-\KAuxErrorKnowledgeUnknown {default}{}{quantifiers}{quantifiers}{\kl }
-
-\KAuxFileAt {introduction.tex}{37}
-\KAuxErrorKnowledgeUnknown {default}{}{Strong Exponential Time Hypothesis}{Strong Exponential Time Hypothesis}{\kl }
-\KAuxErrorKnowledgeUnknown {default}{}{SETH}{SETH}{\kl }
+\KAuxFileAt {introduction.tex}{39}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-6}{document}
 
 \KAuxFileAt {introduction.tex}{41}
-\KAuxErrorKnowledgeUnknown {default}{}{Williams--Gao--Impagliazzo's algorithm}{Williams--Gao--Impagliazzo's algorithm}{\kl }
+\KAuxAutorefTarget {default}{base}{model checking problem}
 
-\KAuxFileAt {introduction.tex}{42}
-\KAuxErrorKnowledgeUnknown {default}{}{disjunctive normal form}{disjunctive normal form}{\kl }
-\KAuxErrorKnowledgeUnknown {default}{}{DNF}{DNF}{\kl }
+\KAuxFileAt {introduction.tex}{64}
+\KAuxErrorKnowledgeUnknown {default}{}{quantifiers}{quantifiers}{\kl }
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-7}{document}
 
-\KAuxFileAt {introduction.tex}{47}
-\KAuxErrorKnowledgeUnknown {default}{}{Tarski's calculus of relations}{Tarski's calculus of relations}{\intro }
-\KAuxErrorKnowledgeUnknown {default}{}{CoR}{CoR}{\reintro }
+\KAuxFileAt {introduction.tex}{78}
+\KAuxAutorefTarget {default}{base}{Tarski's calculus of relations}
 
-\KAuxFileAt {introduction.tex}{53}
+\KAuxFileAt {introduction.tex}{84}
 \KAuxErrorKnowledgeUnknown {default}{}{matrix multiplication}{matrix multiplication}{\kl }
-\KAuxErrorKnowledgeUnknown {default}{}{relational composition}{relational composition}{\kl }
+
+\KAuxFileAt {introduction.tex}{96}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-8}{document}
 \KAuxDeclaredScopeTag {sec: preliminaries}
 \KAuxNewLinkScopetagInstance {sec: preliminaries}{document}
+
+\KAuxFileAt {preliminaries.tex}{29}
+\KAuxAutorefTarget {default}{base}{signature}
+
+\KAuxFileAt {preliminaries.tex}{31}
+\KAuxAutorefTarget {default}{base}{structure}
+
+\KAuxFileAt {preliminaries.tex}{32}
+\KAuxAutorefTarget {default}{base}{universe}
+\KAuxAutorefTarget {default}{base}{vertices}
+
+\KAuxFileAt {preliminaries.tex}{35}
+\KAuxAutorefTarget {default}{base}{sentence}
+
+\KAuxFileAt {preliminaries.tex}{37}
+\KAuxErrorKnowledgeUnknown {default}{}{valuation}{valuation}{\kl }
+
+\KAuxFileAt {preliminaries.tex}{72}
+\KAuxErrorKnowledgeUnknown {default}{}{terms}{terms}{\kl }
+\KAuxDeclaredScopeTag {proposition: CoR model checking}
+\KAuxNewLinkScopetagInstance {proposition: CoR model checking}{document}
+
+\KAuxFileAt {preliminaries.tex}{80}
+\KAuxErrorKnowledgeUnknown {default}{}{atomic}{atomic}{\kl }
+
+\KAuxFileAt {preliminaries.tex}{89}
+\KAuxAutorefTarget {default}{base}{SETH}
+\KAuxAutorefTarget {default}{base}{SETH}
+\KAuxDeclaredScopeTag {conjecture: SETH}
+\KAuxNewLinkScopetagInstance {conjecture: SETH}{document}
+
+\KAuxFileAt {preliminaries.tex}{92}
+\KAuxErrorKnowledgeUnknown {default}{}{$k$-CNF}{$k$-CNF}{\kl }
+
+\KAuxFileAt {preliminaries.tex}{97}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-9}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-10}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-11}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-12}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-13}{document}
+
+\KAuxFileAt {preliminaries.tex}{99}
+\KAuxAutorefTarget {default}{base}{SETH}
+
+\KAuxFileAt {preliminaries.tex}{103}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-14}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-15}{document}
+\KAuxDeclaredScopeTag {conjecture: CNF-SAT}
+\KAuxNewLinkScopetagInstance {conjecture: CNF-SAT}{tikzpicture-15}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-16}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-17}{document}
+\KAuxDeclaredScopeTag {conjecture: CNF-SAT}
+\KAuxNewLinkScopetagInstance {conjecture: CNF-SAT}{tikzpicture-17}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-18}{document}
+\KAuxDeclaredScopeTag {sec: fo3 to CoR}
+\KAuxNewLinkScopetagInstance {sec: fo3 to CoR}{document}
+
+\KAuxFileAt {fo3_to_CoR.tex}{6}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-19}{document}
+\KAuxDeclaredScopeTag {proposition: fo3 to atomic CoR}
+\KAuxNewLinkScopetagInstance {proposition: fo3 to atomic CoR}{document}
+
+\KAuxFileAt {fo3_to_CoR.tex}{22}
+\KAuxErrorKnowledgeUnknown {default}{}{semantically equivalent}{semantically equivalent}{\kl }
+\KAuxDeclaredScopeTag {theorem: fo3 model checking}
+\KAuxNewLinkScopetagInstance {theorem: fo3 model checking}{document}
+
+\KAuxFileAt {fo3_to_CoR.tex}{45}
+\KAuxErrorKnowledgeUnknown {default}{}{size}{size}{\kl }
+\KAuxDeclaredScopeTag {sec: from cnf}
+\KAuxNewLinkScopetagInstance {sec: from cnf}{document}
+\KAuxDeclaredScopeTag {theorem: FO3 model checking hardness}
+\KAuxNewLinkScopetagInstance {theorem: FO3 model checking hardness}{document}
+\KAuxDeclaredScopeTag {lemma: FO3 model checking hardness}
+\KAuxNewLinkScopetagInstance {lemma: FO3 model checking hardness}{document}
+
+\KAuxFileAt {from_cnf.tex}{26}
+\KAuxErrorKnowledgeUnknown {default}{}{unary relation symbols}{unary relation symbols}{\kl }
+
+\KAuxFileAt {from_cnf.tex}{28}
+\KAuxErrorKnowledgeUnknown {default}{}{unary relation symbol}{unary relation symbol}{\kl }
+
+\KAuxFileAt {from_cnf.tex}{42}
+\KAuxErrorKnowledgeUnknown {default}{}{satisfiable}{satisfiable}{\kl }
+
+\KAuxFileAt {from_cnf.tex}{49}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-20}{document}
+
+\KAuxFileAt {from_cnf.tex}{71}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-21}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-22}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-23}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-24}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-25}{document}
+\KAuxDeclaredScopeTag {theorem: FO3 model checking hardness 1 binary}
+\KAuxNewLinkScopetagInstance {theorem: FO3 model checking hardness 1 binary}{document}
+\KAuxDeclaredScopeTag {lemma: FO3 model checking hardness 1 binary}
+\KAuxNewLinkScopetagInstance {lemma: FO3 model checking hardness 1 binary}{document}
+
+\KAuxFileAt {from_cnf.tex}{108}
+\KAuxErrorKnowledgeUnknown {default}{propositional}{valuation}{valuation}{\kl }
+
+\KAuxFileAt {from_cnf.tex}{112}
+\KAuxErrorKnowledgeUnknown {default}{propositional}{valuation}{valuation}{\kl }
+
+\KAuxFileAt {from_cnf.tex}{122}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-26}{document}
 \KAuxDeclaredScopeTag {thm:FO3-FPT}
 \KAuxNewLinkScopetagInstance {thm:FO3-FPT}{document}
 
 \KAuxFileAt {fpt.tex}{66}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-14}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-27}{document}
 
 \KAuxFileAt {fpt.tex}{109}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-15}{document}
-\KAuxDeclaredScopeTag {sect: from dominating set}
-\KAuxNewLinkScopetagInstance {sect: from dominating set}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-28}{document}
 
-\KAuxFileAt {from_dominating_set.tex}{5}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-16}{document}
-\KAuxDeclaredScopeTag {proposition: SETH dominating set}
-\KAuxNewLinkScopetagInstance {proposition: SETH dominating set}{document}
-\KAuxDeclaredScopeTag {corollary: SETH dominating set}
-\KAuxNewLinkScopetagInstance {corollary: SETH dominating set}{document}
-\KAuxDeclaredScopeTag {sec: from cnf}
-\KAuxNewLinkScopetagInstance {sec: from cnf}{document}
-
-\KAuxFileAt {from_cnf.tex}{4}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-17}{document}
-\KAuxDeclaredScopeTag {theorem: SETH CNF}
-\KAuxNewLinkScopetagInstance {theorem: SETH CNF}{document}
+\KAuxFileAt {fpt.tex}{385}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-29}{document}
 \KAuxDeclaredScopeTag {sec: conclusion}
 \KAuxNewLinkScopetagInstance {sec: conclusion}{document}
+\KAuxDeclaredScopeTag {proposition: trivial lowerbound}
+\KAuxNewLinkScopetagInstance {proposition: trivial lowerbound}{document}
+
+\KAuxFileAt {tips.tex}{34}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-30}{document}
+\KAuxDeclaredScopeTag {proposition: unary}
+\KAuxNewLinkScopetagInstance {proposition: unary}{document}
+
+\KAuxFileAt {tips.tex}{37}
+\KAuxErrorKnowledgeUnknown {default}{}{equality}{equality}{\kl }
+
+\KAuxFileAt {tips.tex}{41}
+\KAuxErrorKnowledgeUnknown {default}{}{subformula}{subformula}{\kl }
+
+\KAuxFileAt {tips.tex}{42}
+\KAuxErrorKnowledgeUnknown {default}{}{free variable}{free variable}{\kl }
+
+\KAuxFileAt {tips.tex}{187}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-31}{document}
+
+\KAuxFileAt {memo.tex}{25}
+\KAuxScopeNewInstance {scope}{scope-1}{document}
+\KAuxScopeNewInstance {scope}{scope-2}{document}
+\KAuxScopeNewInstance {scope}{scope-3}{scope-2}
+\KAuxDeclaredScopeTag {memo: FO4}
+\KAuxNewLinkScopetagInstance {memo: FO4}{document}
+
+\KAuxFileAt {memo.tex}{88}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-32}{document}
+\KAuxScopeNewInstance {scope}{scope-4}{tikzpicture-32}
+\KAuxScopeNewInstance {scope}{scope-5}{tikzpicture-32}
+\KAuxScopeNewInstance {scope}{scope-6}{scope-5}
+\KAuxDeclaredScopeTag {memo: dichotomy}
+\KAuxNewLinkScopetagInstance {memo: dichotomy}{document}
+
+\KAuxFileAt {memo.tex}{110}
+\KAuxScopeNewInstance {scope}{scope-7}{document}
+\KAuxScopeNewInstance {scope}{scope-8}{document}
+\KAuxScopeNewInstance {scope}{scope-9}{scope-8}
 \KAuxEOF {}

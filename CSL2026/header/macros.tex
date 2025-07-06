@@ -1,13 +1,23 @@
 
+
 \newcommand{\fo}{\ensuremath{\mathbb{FO}}}
 \DeclarePairedDelimiter{\sem}{\llbracket}{\rrbracket}
 \DeclarePairedDelimiter{\set}{\{}{\}}
 \DeclarePairedDelimiter{\tuple}{\langle}{\rangle}
+\newcommand{\const}[1]{\mathsf{#1}}
+
+\DeclarePairedDelimiter{\range}{[}{]}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\defeq}{\coloneq}
+
+\newcommand{\Z}{\mathbb{Z}}
 
 % TODO: 
 \knowledgenewrobustcmd{\poly}{\operatorname{\cmdkl{poly}}}
 
-\NewDocumentCommand\struc{O{1}}{%
+\newcommand{\sig}{\sigma} % signature
+\NewDocumentCommand\struc{O{1}}{% structure
     \ifcase#1
         undefined
     \or \mathfrak{A}
@@ -18,8 +28,9 @@
 }
 
 
+\DeclarePairedDelimiter{\univ}{|}{|} % universe of a structure, domain of a structure
 
-\DeclarePairedDelimiter{\len}{\|}{\|}
+\DeclarePairedDelimiter{\len}{\|}{\|} % the length of a structure
 
 \NewDocumentCommand\fml{O{1}}{%
     \ifcase#1
@@ -38,3 +49,15 @@
 \knowledgenewrobustcmd{\union}{\mathbin{\cmdkl{+}}}
 \knowledgenewrobustcmd{\intersection}{\mathbin{\cmdkl{\cap}}}
 \knowledgenewrobustcmd{\compo}{\mathbin{\cmdkl{;}}}
+\knowledgenewrobustcmd{\id}{\const{I}}
+\knowledgenewrobustcmd{\emp}{\const{0}}
+\knowledgenewrobustcmd{\dom}{\const{d}}
+\NewDocumentCommand\term{O{1}}{%
+    \ifcase#1
+        undefined
+    \or t
+    \or s
+    \or u
+    \else undefined
+    \fi
+}

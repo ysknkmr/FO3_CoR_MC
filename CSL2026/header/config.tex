@@ -7,5 +7,29 @@
 \usepackage[backgroundcolor=orange!20, textcolor={Dark Ruby Red}, textsize=tiny]{todonotes}
 \definecolor{yoshikieditcolor}{RGB}{200,230,200}
 
-\NewEnviron{sideyoshiki}{\todo[caption={},backgroundcolor=yoshikieditcolor, size=\tiny]{Yo: \BODY}}
-\NewEnviron{yoshiki}{\todo[inline,caption={},backgroundcolor=yoshikieditcolor, size=\footnotesize]{Yo: \BODY}} % For deleting comments from the LaTeX source
+\NewEnviron{sideyoshiki}{\todo[caption={},backgroundcolor=yoshikieditcolor, size=\tiny]{YN: \BODY}}
+\NewEnviron{yoshiki}{\todo[inline,caption={},backgroundcolor=yoshikieditcolor, size=\footnotesize]{YN: \BODY}} % For deleting comments from the LaTeX source
+
+
+
+% \usepackage{fontawesome5}
+% https://tex.stackexchange.com/questions/707773/tcolorbox-with-quotes
+\definecolor{themecolor}{named}{gray}
+\newcommand{\leftsp}{0.3cm}
+\newtcolorbox{myquote}[1][]{
+enhanced,
+colback=themecolor!10,
+coltitle=black,
+colbacktitle=themecolor!3,
+arc=0pt,
+frame empty,
+overlay={%
+\begin{scope}[shift={(interior.north west)}]
+\begin{scope}[shift={(interior.north west)}]
+\filldraw [themecolor!60] (\leftsp,0.1cm) -- ++(-0.075cm,-0.15cm) -- ++(0,-0.06cm) -- ++(0.08cm,0) -- ++(0,0.06cm) -- ++(0.055cm,0.155cm) --cycle;
+\filldraw [themecolor!60] ($(\leftsp,0.1cm)+(0.2cm,0)$) -- ++(-0.075cm,-0.15cm) -- ++(0,-0.06cm) -- ++(0.08cm,0) -- ++(0,0.06cm) -- ++(0.055cm,0.155cm) --cycle;
+\end{scope}
+\end{scope}
+},
+#1
+}

@@ -2,12 +2,12 @@
 * Summary *
 ***********
 
-13 undefined knowledge(s).
-0 autoreference(s) are introduced twice.
-4 autoreference(s) are used but not introduced.
+17 undefined knowledge(s).
+1 autoreference(s) are introduced twice.
+15 autoreference(s) are used but not introduced.
 
-1 autoreference(s) are properly used.
-0 autoreference(s) are defined but not used.
+6 autoreference(s) are properly used.
+1 autoreference(s) are defined but not used.
 
 
 ********
@@ -23,40 +23,94 @@
 ************************
 
 \knowledge{ignore}
-% introduction.tex:11
- | variables
-% introduction.tex:12
- | vertices
-% introduction.tex:31
- | prenex normal form
+% introduction.tex:35
+ | quantifier-width
+% introduction.tex:64
  | quantifiers
-% introduction.tex:37
- | Strong Exponential Time Hypothesis
- | SETH
-% introduction.tex:41
- | Williams--Gao--Impagliazzo's algorithm
-% introduction.tex:42
- | disjunctive normal form
- | DNF
-% introduction.tex:47
- | Tarski's calculus of relations
- | CoR
-% introduction.tex:53
+% introduction.tex:84
  | matrix multiplication
- | relational composition
+% preliminaries.tex:37
+ | valuation
+% preliminaries.tex:72
+ | terms
+% preliminaries.tex:80
+ | atomic
+% preliminaries.tex:92
+ | $k$-CNF
+% fo3_to_CoR.tex:22
+ | semantically equivalent
+% fo3_to_CoR.tex:45
+ | size
+% from_cnf.tex:26
+ | unary relation symbols
+% from_cnf.tex:28
+ | unary relation symbol
+% from_cnf.tex:42
+ | satisfiable
+% from_cnf.tex:108
+ | valuation@propositional
+% from_cnf.tex:112
+ | valuation@propositional
+% tips.tex:37
+ | equality
+% tips.tex:41
+ | subformula
+% tips.tex:42
+ | free variable
+
+
+****************************
+* autoref-introduced-twice *
+****************************
+
+% preliminaries.tex:89
+preliminaries.tex:89: {SETH}{default}{base}
+preliminaries.tex:89: {SETH}{default}{base}
+% preliminaries.tex:99
+preliminaries.tex:99: {SETH}{default}{base}
 
 
 ******************************
 * Autoref used without intro *
 ******************************
 
-% macros.tex:8
+% macros.tex:17
 \nointro{default}{base}{\poly }
-% macros.tex:40
+% macros.tex:49
+\nointro{default}{base}{\union }
+% macros.tex:50
+\nointro{default}{base}{\intersection }
+% macros.tex:51
 \nointro{default}{base}{\compo }
-% paper.tex:8
-\nointro{default}{base}{structure}
-% paper.tex:17
-\nointro{default}{base}{sentence}
+% paper.tex:6
+\nointro{default}{base}{Williams' algorithm}
+% paper.tex:34
+\nointro{default}{base}{variable}
+% paper.tex:40
+\nointro{default}{base}{formula}
+% paper.tex:48
+\nointro{default}{base}{prenex normal form}
+% paper.tex:59
+\nointro{default}{base}{composition}
+% paper.tex:66
+\nointro{default}{base}{CNF}
+% paper.tex:70
+\nointro{default}{base}{DNF}
+% paper.tex:74
+\nointro{default}{base}{SAT}
+% paper.tex:81
+\nointro{default}{explicit-scope:propositional}{variable}
+% paper.tex:85
+\nointro{default}{base}{clause}
+% paper.tex:91
+\nointro{default}{explicit-scope:propositional}{length}
+
+
+***********************************
+* Autoref introduced but not used *
+***********************************
+
+% paper.tex:27
+paper.tex:27: {universe}{default}{base}
 
 

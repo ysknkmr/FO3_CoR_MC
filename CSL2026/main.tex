@@ -6,7 +6,7 @@
 \newcounter{tempTheoremCounter} % カウンタを一時的に保存するための新しいカウンタを定義
 
 \usepackage{tikz}
-\usetikzlibrary{tikzmark, arrows.meta, bending}
+\usetikzlibrary{tikzmark, arrows.meta, bending, calc}
 
 \usepackage{CJKutf8} % 日本語を書きたいので
 \usepackage{ascmac} % なんか枠を作る
@@ -24,6 +24,8 @@
 % \usepackage[bibliography=common]{apxproof}
 \usepackage{mathtools} % for \DeclarePairedDelimiter
 \usepackage{environ} % for \NewEnviron
+\usepackage[normalem]{ulem} % for \sout
+\usepackage{multirow} % for \multirow
 
 \input{kl/config}
 \input{header/config}
@@ -65,83 +67,25 @@
 \input{sec/abstract}
 \end{abstract}
 
-\section{Notation}
 
-\begin{hidden}
-\Ja{
-（メモ:
-LIPICSとpLaTeXは異常に組み合わせが悪いので、
-コメントなどで日本語を書く時はこのようにします。）}
-
-\begin{screen}
-Cute round-corner box \\
-\Ja{コメントを付ける時には、screenで囲うとこういう感じになります}
-\end{screen}
-
-\begin{yoshiki}
-  \Ja{コメントテスト}
-\end{yoshiki}
-
-\begin{sideyoshiki}
-  \Ja{コメントテスト２}
-\end{sideyoshiki}
-\end{hidden}
-
-We write $\fo^k$ to denote the set of formulas of First-order predicate logic with $k$-variables.
-
-\paragraph*{Important Remark (Unary and Binary Predicates)}
-We allow unary and binary predicates in our $\fo^3$.
-Therefore, we do not allow terms involving ternary predicates such as $\forall x.\,\exists y.\,\forall z.\, P(x, y, z)$.%
-\footnote{For each unary predicate $U$, we can simulate it by a diagonal binary predicate $B_U(x, y) := x = y \land U(x)$. However, in our later construction, we use some unary predicates; thus, we also allow unary predicates explicitly.}
-
-On this remark, we can identify each model $\mathcal{M}$ as color graphs as follows:
-\begin{itemize}
-\item Each element corresponds a node (vertex).
-\item Each unary predicate $U_i$ means ``color-$i$'' node.
-\item Each binary predicate $P_j$ is ``color-$j$'' edge.
-\item For example, on two nodes $x, y$, a term $(U_i(x) \land U_j(y) \land P_k(x, y))$ means that $x$ has the color $i$, $y$ has the color $j$, and there is a color $k$ edge from $x$ to $y$.
-\end{itemize}
-
-\paragraph*{Quantifier width}
-\begin{Jcomment}
-Quantifier widthという謎の指標を導入します。
-
-与えられた式の部分項 $\forall/\exists x. ( \cdots )$ について $\cdots$部分に「直接」出てくるquantifierの個数を、この部分項のquantifier widthと呼ぶことにします。
-
-たとえば、次の部分項
-$$
-\forall x.\biggl( \Bigl(\underline{{\color{red}\forall}} y. P(y)\Bigr) \lor \Bigl(\underline{{\color{red}\forall}} z. (\underline{\forall} x. P(z, x)) \land Q(z)\Bigr) \biggr)
-$$
-については、内部に3つのquantifierの出現（下線）があるのですが、直接の出現は赤くした2つだけなので、この部分項のquantifier widthは「２」です。
-
-そして、式のquantifier widthというのは、最大のquantifier widthを持つ部分項における、その数として定義します。
-\end{Jcomment}
 
 \input{sec/introduction}
 \input{sec/preliminaries}
-\input{sec/fpt}
-\input{sec/from_dominating_set}
+\input{sec/fo3_to_CoR}
+% \input{sec/from_dominating_set}
 \input{sec/from_cnf}
+\input{sec/fpt}
 \input{sec/conclusion}
 
-\bibliography{main.bib}
-% \bibliography{../../../../library.bib} % for yn
+% \bibliography{main.bib}
+\bibliography{../../../../library.bib} % for yn
 
-\section{memo (2025/07/03)}
+\clearpage
+\appendix
+\input{sec/tips}
 
-% あと、 SETHから導かれる
-% a) [Williams 14,CSL-LICS Theorem 4] の仮説：FOk が O(n^{k-1−ε}) time で解けない
-% b) ①の帰着の仮説：FOk が poly(|ψ|) n^{k-1−ε} time で解けない
-% c) ②の帰着の仮説：FOk が poly(|ψ|) n^{k−ε} time で解けない # ← O(|ψ| n^{k-ε}) の形よりも SETH にあっていそう？
-% の３つの仮説について、a) ⇒ b)  と  c) ⇒ b) はほぼ明らかに成り立つものでした（つまり①の結果は全く無意味でした）。
-
-% （解決）
-
-
-% ・あとは、FO3 が O(2^{δ|φ|} n^ω) time （δ <1）で解けないことを示せるか？という問題も考えられそうです。
-% （これが示せれば O(2^{δ|φ|}) time の FO3 -> CoR の変換がないこともいえます）
-
-% (Open)
-
+\clearpage
+\input{sec/memo}
 
 \end{document}
+
