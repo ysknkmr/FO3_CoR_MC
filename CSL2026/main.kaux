@@ -446,7 +446,7 @@
 \KAuxDeclaredScopeTag {memo: FO4}
 \KAuxNewLinkScopetagInstance {memo: FO4}{document}
 
-\KAuxFileAt {memo.tex}{88}
+\KAuxFileAt {memo.tex}{95}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-32}{document}
 \KAuxScopeNewInstance {scope}{scope-4}{tikzpicture-32}
 \KAuxScopeNewInstance {scope}{scope-5}{tikzpicture-32}
@@ -454,7 +454,7 @@
 \KAuxDeclaredScopeTag {memo: dichotomy}
 \KAuxNewLinkScopetagInstance {memo: dichotomy}{document}
 
-\KAuxFileAt {memo.tex}{110}
+\KAuxFileAt {memo.tex}{117}
 \KAuxScopeNewInstance {scope}{scope-7}{document}
 \KAuxScopeNewInstance {scope}{scope-8}{document}
 \KAuxScopeNewInstance {scope}{scope-9}{scope-8}
