@@ -2,7 +2,7 @@
 * Summary *
 ***********
 
-18 undefined knowledge(s).
+19 undefined knowledge(s).
 1 autoreference(s) are introduced twice.
 15 autoreference(s) are used but not introduced.
 
@@ -57,8 +57,9 @@
  | subformula
 % tips.tex:42
  | free variable
-% tips.tex:225
+% tips.tex:232
  | model checking
+ | $k$-uniform HyperClique Hypothesis
 
 
 ****************************
