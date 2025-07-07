@@ -439,6 +439,9 @@
 \KAuxDeclaredScopeTag {corollary: omega 3 2}
 \KAuxNewLinkScopetagInstance {corollary: omega 3 2}{tikzpicture-31}
 
+\KAuxFileAt {tips.tex}{240}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-32}{document}
+
 \KAuxFileAt {memo.tex}{25}
 \KAuxScopeNewInstance {scope}{scope-1}{document}
 \KAuxScopeNewInstance {scope}{scope-2}{document}
@@ -447,9 +450,9 @@
 \KAuxNewLinkScopetagInstance {memo: FO4}{document}
 
 \KAuxFileAt {memo.tex}{95}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-32}{document}
-\KAuxScopeNewInstance {scope}{scope-4}{tikzpicture-32}
-\KAuxScopeNewInstance {scope}{scope-5}{tikzpicture-32}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-33}{document}
+\KAuxScopeNewInstance {scope}{scope-4}{tikzpicture-33}
+\KAuxScopeNewInstance {scope}{scope-5}{tikzpicture-33}
 \KAuxScopeNewInstance {scope}{scope-6}{scope-5}
 \KAuxDeclaredScopeTag {memo: dichotomy}
 \KAuxNewLinkScopetagInstance {memo: dichotomy}{document}
