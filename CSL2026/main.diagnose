@@ -2,7 +2,7 @@
 * Summary *
 ***********
 
-17 undefined knowledge(s).
+18 undefined knowledge(s).
 1 autoreference(s) are introduced twice.
 15 autoreference(s) are used but not introduced.
 
@@ -57,6 +57,8 @@
  | subformula
 % tips.tex:42
  | free variable
+% tips.tex:225
+ | model checking
 
 
 ****************************

@@ -180,7 +180,45 @@
     \item \Ja{?? は主張が不明/怪しい箇所（メモ\ref{memo: FO4}参照）}
     \begin{itemize}
         \item \Ja{主張が成り立たなそうであることを言うには、}\\
-        \Ja{Binary $\fo^{4}$ is in $\mathcal{O}(n^{4 - \eps})$ time $\Longrightarrow$ $\omega_{3} < 4$ を言えればよさそう} (Open Problem)
+        \Ja{Binary $\fo^{4}$ is in $\mathcal{O}(n^{4 - \eps})$ time $\Longrightarrow$ $\omega_{3} < 4$ を言えればよさそう。}
+        \begin{observation}
+            \begin{itemize}
+                \item $\omega_2 = \omega < 2.38 (< 3)$.\\
+                \item $\omega_{3} < 4$ is wished \cite{williamsFasterDecisionFirstorder2014} but open.\\
+                \Ja{4-clique in a 3-uniform hypergraph を含む難しい問題のようです。Cf.\ HyperClique Conjecture}
+            \end{itemize}
+        \end{observation}
+
+        \item \Ja{もしくは、もう少し精密化して今回の設定に合った行列積の問題に一般化する。}
+
+        \Ja{入力を$\range{n}$上の任意有限個の$m$項関係として、$k$引数関係 $A_1, \dots, A_{k}$ は入力の$m$項関係から $\fo^{k+1}$-definableであるとする。この時の``一般化行列積''}
+        \[D[i_1, \dots, i_k] = \bigvee_{\ell = 1}^{n} \bigwedge_{j = 1}^{k} A_j [i_1, \dots i_{j-1}, i_{j+1}, \dots, i_{k}, \ell]\]
+        \Ja{の時間計算量を $\mathcal{O}(n^{\omega_{k, m}})$ とする。}
+
+        \begin{itemize}
+            \item \Ja{Fact: $\omega_{k,k} = \omega_{k}$。とくに $\omega_{2,2} = \omega$。\\
+            （$\omega_{k, k} \le \omega_{k}$: $\fo^{k+1}$ "model checking" が $\mathcal{O}(n^{\omega_{k}})$より。 $\omega_{k, k} \ge \omega_{k}$: $A_1, \dots, A_k$ が入力になる場合を考える）}
+            \item \Ja{Fact: $\omega_{k,1} = k$ (成分ごと独立なので)}
+            \item \Ja{Fact: $\omega_{k,2} \le \dots \le \omega_{k,k} = \omega_{k} \le k+1$}
+        \end{itemize}
+        
+        We then have:
+        \begin{proposition}
+            Binary $\fo^{4}$ is in $\mathcal{O}(n^{c})$ time $\iff$ $\omega_{3,2} \le c$.
+        \end{proposition}
+        \begin{proof}
+            $\Longleftarrow$: By an analog of the FO3-to-CoR translation.
+            $\Longrightarrow$: 
+            Every matrix multiplication problem "wrt" $\omega_{3,2}$ can 
+            be expressed as a "model checking problem" where the "sentence" is fixed to a binary $\fo^{4}$ "sentence".
+        \end{proof}
+
+        \begin{corollary}\label{corollary: omega 3 2}
+            If binary $\fo^{4}$ is in $\mathcal{O}(n^{1 + \omega})$ time, then $\omega_{3,2} \le 1 + \omega$.
+            Hence, $\omega_{3, 2} < 4$.
+        \end{corollary}
+
+        \Ja{$\leadsto$ $\omega_{3, 2}$ の問題の形で書けるが $\mathcal{O}(n^{4-\eps})$ が open な問題はあるでしょうか？}
     \end{itemize}
     \item \Ja{赤の箇所は未証明}
 \end{itemize}

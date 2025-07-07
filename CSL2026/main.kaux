@@ -432,8 +432,11 @@
 \KAuxFileAt {tips.tex}{42}
 \KAuxErrorKnowledgeUnknown {default}{}{free variable}{free variable}{\kl }
 
-\KAuxFileAt {tips.tex}{187}
+\KAuxFileAt {tips.tex}{225}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-31}{document}
+\KAuxErrorKnowledgeUnknown {default}{}{model checking}{model checking}{\kl }
+\KAuxDeclaredScopeTag {corollary: omega 3 2}
+\KAuxNewLinkScopetagInstance {corollary: omega 3 2}{tikzpicture-31}
 
 \KAuxFileAt {memo.tex}{25}
 \KAuxScopeNewInstance {scope}{scope-1}{document}
