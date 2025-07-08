@@ -95,11 +95,17 @@
 
 \KAuxFileAt {abbreviations.tex}{40}
 
-\KAuxFileAt {abbreviations.tex}{42}
+\KAuxFileAt {abbreviations.tex}{41}
 
 \KAuxFileAt {abbreviations.tex}{43}
 
 \KAuxFileAt {abbreviations.tex}{44}
+
+\KAuxFileAt {abbreviations.tex}{46}
+
+\KAuxFileAt {abbreviations.tex}{47}
+
+\KAuxFileAt {abbreviations.tex}{48}
 
 \KAuxFileAt {complexity.tex}{1}
 
@@ -123,147 +129,159 @@
 \KAuxFileAt {paper.tex}{5}
 
 \KAuxFileAt {paper.tex}{6}
-\KAuxAutoref {default}{base}{Williams' algorithm}
+\KAuxAutoref {default}{base}{HyperClique}
+
+\KAuxFileAt {paper.tex}{8}
+
+\KAuxFileAt {paper.tex}{9}
+\KAuxAutoref {default}{base}{Binary HyperClique}
+
+\KAuxFileAt {paper.tex}{10}
 
 \KAuxFileAt {paper.tex}{12}
 
 \KAuxFileAt {paper.tex}{13}
-\KAuxAutoref {default}{base}{model checking problem}
-
-\KAuxFileAt {paper.tex}{14}
-
-\KAuxFileAt {paper.tex}{16}
-
-\KAuxFileAt {paper.tex}{17}
-\KAuxAutoref {default}{base}{signature}
-
-\KAuxFileAt {paper.tex}{18}
+\KAuxAutoref {default}{base}{Williams' algorithm}
 
 \KAuxFileAt {paper.tex}{19}
 
 \KAuxFileAt {paper.tex}{20}
+\KAuxAutoref {default}{base}{model checking problem}
 
-\KAuxFileAt {paper.tex}{22}
+\KAuxFileAt {paper.tex}{21}
 
 \KAuxFileAt {paper.tex}{23}
-\KAuxAutoref {default}{base}{structure}
 
 \KAuxFileAt {paper.tex}{24}
+\KAuxAutoref {default}{base}{signature}
+
+\KAuxFileAt {paper.tex}{25}
 
 \KAuxFileAt {paper.tex}{26}
 
 \KAuxFileAt {paper.tex}{27}
-\KAuxAutoref {default}{base}{universe}
 
 \KAuxFileAt {paper.tex}{29}
 
 \KAuxFileAt {paper.tex}{30}
-\KAuxAutoref {default}{base}{vertices}
+\KAuxAutoref {default}{base}{structure}
 
 \KAuxFileAt {paper.tex}{31}
 
 \KAuxFileAt {paper.tex}{33}
 
 \KAuxFileAt {paper.tex}{34}
-\KAuxAutoref {default}{base}{variable}
-
-\KAuxFileAt {paper.tex}{35}
+\KAuxAutoref {default}{base}{universe}
 
 \KAuxFileAt {paper.tex}{36}
-\KAuxUndeclaredScopeTag {fo}
 
 \KAuxFileAt {paper.tex}{37}
+\KAuxAutoref {default}{base}{vertices}
 
-\KAuxFileAt {paper.tex}{39}
+\KAuxFileAt {paper.tex}{38}
 
 \KAuxFileAt {paper.tex}{40}
-\KAuxAutoref {default}{base}{formula}
 
 \KAuxFileAt {paper.tex}{41}
+\KAuxAutoref {default}{base}{variable}
+
+\KAuxFileAt {paper.tex}{42}
 
 \KAuxFileAt {paper.tex}{43}
+\KAuxUndeclaredScopeTag {fo}
 
 \KAuxFileAt {paper.tex}{44}
-\KAuxAutoref {default}{base}{sentence}
 
-\KAuxFileAt {paper.tex}{45}
+\KAuxFileAt {paper.tex}{46}
 
 \KAuxFileAt {paper.tex}{47}
+\KAuxAutoref {default}{base}{formula}
 
 \KAuxFileAt {paper.tex}{48}
-\KAuxAutoref {default}{base}{prenex normal form}
 
-\KAuxFileAt {paper.tex}{49}
+\KAuxFileAt {paper.tex}{50}
+
+\KAuxFileAt {paper.tex}{51}
+\KAuxAutoref {default}{base}{sentence}
+
+\KAuxFileAt {paper.tex}{52}
 
 \KAuxFileAt {paper.tex}{54}
 
 \KAuxFileAt {paper.tex}{55}
-\KAuxAutoref {default}{base}{Tarski's calculus of relations}
+\KAuxAutoref {default}{base}{prenex normal form}
 
 \KAuxFileAt {paper.tex}{56}
 
-\KAuxFileAt {paper.tex}{58}
+\KAuxFileAt {paper.tex}{61}
 
-\KAuxFileAt {paper.tex}{59}
-\KAuxAutoref {default}{base}{composition}
+\KAuxFileAt {paper.tex}{62}
+\KAuxAutoref {default}{base}{Tarski's calculus of relations}
 
-\KAuxFileAt {paper.tex}{60}
+\KAuxFileAt {paper.tex}{63}
 
 \KAuxFileAt {paper.tex}{65}
 
 \KAuxFileAt {paper.tex}{66}
-\KAuxAutoref {default}{base}{CNF}
+\KAuxAutoref {default}{base}{composition}
 
 \KAuxFileAt {paper.tex}{67}
 
-\KAuxFileAt {paper.tex}{69}
-
-\KAuxFileAt {paper.tex}{70}
-\KAuxAutoref {default}{base}{DNF}
-
-\KAuxFileAt {paper.tex}{71}
+\KAuxFileAt {paper.tex}{72}
 
 \KAuxFileAt {paper.tex}{73}
+\KAuxAutoref {default}{base}{CNF}
 
 \KAuxFileAt {paper.tex}{74}
-\KAuxAutoref {default}{base}{SAT}
 
 \KAuxFileAt {paper.tex}{76}
 
 \KAuxFileAt {paper.tex}{77}
-\KAuxUndeclaredScopeTag {propositional}
-\KAuxAutoref {default}{explicit-scope:propositional}{formula}
+\KAuxAutoref {default}{base}{DNF}
 
 \KAuxFileAt {paper.tex}{78}
 
 \KAuxFileAt {paper.tex}{80}
 
 \KAuxFileAt {paper.tex}{81}
-\KAuxAutoref {default}{explicit-scope:propositional}{variable}
+\KAuxAutoref {default}{base}{SAT}
 
-\KAuxFileAt {paper.tex}{82}
+\KAuxFileAt {paper.tex}{83}
 
 \KAuxFileAt {paper.tex}{84}
+\KAuxUndeclaredScopeTag {propositional}
+\KAuxAutoref {default}{explicit-scope:propositional}{formula}
 
 \KAuxFileAt {paper.tex}{85}
-\KAuxAutoref {default}{base}{clause}
-
-\KAuxFileAt {paper.tex}{86}
 
 \KAuxFileAt {paper.tex}{87}
 
 \KAuxFileAt {paper.tex}{88}
+\KAuxAutoref {default}{explicit-scope:propositional}{variable}
 
-\KAuxFileAt {paper.tex}{90}
+\KAuxFileAt {paper.tex}{89}
 
 \KAuxFileAt {paper.tex}{91}
+
+\KAuxFileAt {paper.tex}{92}
+\KAuxAutoref {default}{base}{clause}
+
+\KAuxFileAt {paper.tex}{93}
+
+\KAuxFileAt {paper.tex}{94}
+
+\KAuxFileAt {paper.tex}{95}
+
+\KAuxFileAt {paper.tex}{97}
+
+\KAuxFileAt {paper.tex}{98}
 \KAuxAutoref {default}{explicit-scope:propositional}{length}
 
-\KAuxFileAt {main.tex}{61}
+\KAuxFileAt {main.tex}{65}
 \KAuxScopeNewInstance {base}{base}{}
 \KAuxScopeNewInstance {document}{document}{base}
 
-\KAuxFileAt {main.tex}{65}
+\KAuxFileAt {main.tex}{69}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-1}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-2}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-3}{document}
@@ -432,15 +450,54 @@
 \KAuxFileAt {tips.tex}{42}
 \KAuxErrorKnowledgeUnknown {default}{}{free variable}{free variable}{\kl }
 
-\KAuxFileAt {tips.tex}{232}
+\KAuxFileAt {tips.tex}{48}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-31}{document}
-\KAuxErrorKnowledgeUnknown {default}{}{model checking}{model checking}{\kl }
-\KAuxErrorKnowledgeUnknown {default}{}{$k$-uniform HyperClique Hypothesis}{$k$-uniform HyperClique Hypothesis}{\kl }
-\KAuxDeclaredScopeTag {corollary: omega 3 2}
-\KAuxNewLinkScopetagInstance {corollary: omega 3 2}{tikzpicture-31}
+\KAuxDeclaredScopeTag {table: FO3}
+\KAuxNewLinkScopetagInstance {table: FO3}{document}
+\KAuxDeclaredScopeTag {table: FO4}
+\KAuxNewLinkScopetagInstance {table: FO4}{document}
 
-\KAuxFileAt {tips.tex}{240}
+\KAuxFileAt {tips.tex}{230}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-32}{document}
+\KAuxErrorKnowledgeUnknown {default}{}{$\fo ^{k}$}{$\fo ^{k}$}{\kl }
+
+\KAuxFileAt {tips.tex}{235}
+\KAuxErrorKnowledgeUnknown {default}{}{boolean matrix multiplication}{boolean matrix multiplication}{\kl }
+\KAuxDeclaredScopeTag {proposition: FO3 model checking and matrix multiplication}
+\KAuxNewLinkScopetagInstance {proposition: FO3 model checking and matrix multiplication}{document}
+\KAuxDeclaredScopeTag {definition: k-wise matrix product}
+\KAuxNewLinkScopetagInstance {definition: k-wise matrix product}{document}
+
+\KAuxFileAt {tips.tex}{252}
+\KAuxErrorKnowledgeUnknown {default}{}{$k$-wise matrix product}{$k$-wise matrix product}{\intro }
+\KAuxDeclaredScopeTag {proposition: FOk model checking and matrix multiplication}
+\KAuxNewLinkScopetagInstance {proposition: FOk model checking and matrix multiplication}{document}
+\KAuxDeclaredScopeTag {proposition: FOmk model checking and matrix multiplication}
+\KAuxNewLinkScopetagInstance {proposition: FOmk model checking and matrix multiplication}{document}
+
+\KAuxFileAt {tips.tex}{284}
+\KAuxErrorKnowledgeUnknown {default}{}{HyperClique Hypothesis}{HyperClique Hypothesis}{\kl }
+
+\KAuxFileAt {tips.tex}{298}
+\KAuxErrorKnowledgeUnknown {default}{}{$(k+1)$-hyperclique hypothesis}{$(k+1)$-hyperclique hypothesis}{\kl }
+\KAuxDeclaredScopeTag {hypothesis: hyperclique hypothesis rephrased}
+\KAuxNewLinkScopetagInstance {hypothesis: hyperclique hypothesis rephrased}{document}
+
+\KAuxFileAt {tips.tex}{303}
+\KAuxErrorKnowledgeUnknown {default}{}{($k$-uniform) $(k+1)$-hyperclique hypothesis}{($k$-uniform) $(k+1)$-hyperclique hypothesis}{\intro }
+
+\KAuxFileAt {tips.tex}{315}
+\KAuxErrorKnowledgeUnknown {default}{}{binary encoded $(k+1)$-hyperclique hypothesis}{binary encoded $(k+1)$-hyperclique hypothesis}{\kl }
+\KAuxDeclaredScopeTag {hypothesis: binary encoded hyperclique hypothesis}
+\KAuxNewLinkScopetagInstance {hypothesis: binary encoded hyperclique hypothesis}{document}
+
+\KAuxFileAt {tips.tex}{328}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-33}{document}
+\KAuxDeclaredScopeTag {proposition: binary encoded hyperclique hypothesis}
+\KAuxNewLinkScopetagInstance {proposition: binary encoded hyperclique hypothesis}{document}
+
+\KAuxFileAt {tips.tex}{341}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-34}{document}
 
 \KAuxFileAt {memo.tex}{25}
 \KAuxScopeNewInstance {scope}{scope-1}{document}
@@ -450,9 +507,9 @@
 \KAuxNewLinkScopetagInstance {memo: FO4}{document}
 
 \KAuxFileAt {memo.tex}{95}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-33}{document}
-\KAuxScopeNewInstance {scope}{scope-4}{tikzpicture-33}
-\KAuxScopeNewInstance {scope}{scope-5}{tikzpicture-33}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-35}{document}
+\KAuxScopeNewInstance {scope}{scope-4}{tikzpicture-35}
+\KAuxScopeNewInstance {scope}{scope-5}{tikzpicture-35}
 \KAuxScopeNewInstance {scope}{scope-6}{scope-5}
 \KAuxDeclaredScopeTag {memo: dichotomy}
 \KAuxNewLinkScopetagInstance {memo: dichotomy}{document}

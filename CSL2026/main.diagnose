@@ -2,9 +2,9 @@
 * Summary *
 ***********
 
-19 undefined knowledge(s).
+24 undefined knowledge(s).
 1 autoreference(s) are introduced twice.
-15 autoreference(s) are used but not introduced.
+17 autoreference(s) are used but not introduced.
 
 6 autoreference(s) are properly used.
 1 autoreference(s) are defined but not used.
@@ -57,9 +57,20 @@
  | subformula
 % tips.tex:42
  | free variable
-% tips.tex:232
- | model checking
- | $k$-uniform HyperClique Hypothesis
+% tips.tex:230
+ | $\fo ^{k}$
+% tips.tex:235
+ | boolean matrix multiplication
+% tips.tex:252
+ | $k$-wise matrix product
+% tips.tex:284
+ | HyperClique Hypothesis
+% tips.tex:298
+ | $(k+1)$-hyperclique hypothesis
+% tips.tex:303
+ | ($k$-uniform) $(k+1)$-hyperclique hypothesis
+% tips.tex:315
+ | binary encoded $(k+1)$-hyperclique hypothesis
 
 
 ****************************
@@ -86,26 +97,30 @@ preliminaries.tex:99: {SETH}{default}{base}
 % macros.tex:51
 \nointro{default}{base}{\compo }
 % paper.tex:6
+\nointro{default}{base}{HyperClique}
+% paper.tex:9
+\nointro{default}{base}{Binary HyperClique}
+% paper.tex:13
 \nointro{default}{base}{Williams' algorithm}
-% paper.tex:34
+% paper.tex:41
 \nointro{default}{base}{variable}
-% paper.tex:40
+% paper.tex:47
 \nointro{default}{base}{formula}
-% paper.tex:48
+% paper.tex:55
 \nointro{default}{base}{prenex normal form}
-% paper.tex:59
-\nointro{default}{base}{composition}
 % paper.tex:66
+\nointro{default}{base}{composition}
+% paper.tex:73
 \nointro{default}{base}{CNF}
-% paper.tex:70
+% paper.tex:77
 \nointro{default}{base}{DNF}
-% paper.tex:74
-\nointro{default}{base}{SAT}
 % paper.tex:81
+\nointro{default}{base}{SAT}
+% paper.tex:88
 \nointro{default}{explicit-scope:propositional}{variable}
-% paper.tex:85
+% paper.tex:92
 \nointro{default}{base}{clause}
-% paper.tex:91
+% paper.tex:98
 \nointro{default}{explicit-scope:propositional}{length}
 
 
@@ -113,7 +128,7 @@ preliminaries.tex:99: {SETH}{default}{base}
 * Autoref introduced but not used *
 ***********************************
 
-% paper.tex:27
-paper.tex:27: {universe}{default}{base}
+% paper.tex:34
+paper.tex:34: {universe}{default}{base}
 
 

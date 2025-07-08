@@ -43,8 +43,12 @@
   Hence, by the naive evaluation algorithm, we have obtained $\mathcal{O}(n)$ time.
 \end{proof}
 
-\subsection{Summary}
-\begin{center}
+\begin{yoshiki}
+\Ja{TODO: unary $+$ equality の場合はどうなるか？}
+\end{yoshiki}
+
+\subsection{Current Summary}
+\begin{table}[h]
   \begin{tabular}{c||c||c||c}
     Problem / max. arity $k$ & 1 & 2 & 3\\
     \hline
@@ -69,33 +73,56 @@
     \end{tabular}
     & $\mathcal{O}(\len{\fml} \cdot n^{3})$ (trivial)\\
     \cline{2-4}
-    & \multicolumn{3}{c}{no $\poly(\len{\fml}) \cdot n^{3 - \eps}$, under "SETH" (\Cref{theorem: FO3 model checking hardness})}\\  
+    & \multicolumn{3}{c}{no $\poly(\len{\fml}) \cdot n^{3 - \eps}$ under "SETH" (\Cref{theorem: FO3 model checking hardness})}\\  
   \end{tabular}
-\end{center}
+  \caption{Complexity for $\fo^{3}$.}
+\label{table: FO3}
+\end{table}
 
-\Ja{（以下おまけ）}
-\begin{center}
-\scalebox{.7}{
+
+A similar figure can be found in \cite[Figure 1]{bringmannFineGrainedAnalogueSchaefers2019} for data complexity (sparse graphs).
+
+\clearpage
+\section{Hyperclique hypothesis and the case of arity $k \ge 4$}
+
+\begin{table}[h]
+\scalebox{.6}{
   \begin{tabular}{c||c||c|c||c}
-    Problem / max. arity $k$ & 1 & 2 & 3 & 4\\
+    / max. arity $k$ & 1 & 2 & 3 & 4\\
     \hline
     \multirow{2}{*}{\begin{tabular}{c}
-    "PNF" $\fo^{4}$ (data)\\
-    $\fo^{4}$ (data)
+    "PNF" $\fo^{4}$\\(data)
     \end{tabular}} & $\mathcal{O}(n)$ (\Cref{proposition: unary}) & 
     \begin{tabular}{c}
-        \textcolor{red}{$\mathcal{O}(n^{1 + \omega})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{4}$) \\
-        \textcolor{red}{$\mathcal{O}(n^{\omega_3})$} \\
+        $\mathcal{O}(n^{1 + \omega})$ \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014}, \textcolor{red}{$\mathcal{O}(n^{\omega_3})$} \\
     \end{tabular}
-     & \textcolor{red}{$\mathcal{O}(n^{\omega_3})$} & $\mathcal{O}(n^{4})$ (trivial) \\  
-    \cline{2-5}
-    & no $\mathcal{O}(n^{1-\eps})$ (\Cref{proposition: trivial lowerbound}) &
+    & \textcolor{red}{$\mathcal{O}(n^{\omega_3})$}
+    & \multicolumn{1}{c}{$\mathcal{O}(n^{4})$ (trivial)} \\  
+    \cline{2-5} &
+    no $\mathcal{O}(n^{1-\eps})$ (\Cref{proposition: trivial lowerbound}) &
     no $\mathcal{O}(n^{3-\eps})$ under "SETH" \cite[Cor.\ 1.4]{williamsFasterDecisionFirstorder2014} &
-    \multicolumn{2}{c}{no $\mathcal{O}(n^{k-\eps})$ (\Cref{proposition: trivial lowerbound})}\\
+    no $\mathcal{O}(n^{4-\eps})$ under "HyperClique" &
+    \multicolumn{1}{c}{no $\mathcal{O}(n^{k-\eps})$ (\Cref{proposition: trivial lowerbound})}\\
     \hline
     \multirow{2}{*}{\begin{tabular}{c}
-    "PNF" $\fo^{4}$ (combined)\\
-    $\fo^{4}$ (combined)
+    $\fo^{4}$\\(data)
+    \end{tabular}} & $\mathcal{O}(n)$ (\Cref{proposition: unary}) & 
+    \begin{tabular}{c}
+        \textcolor{red}{$\mathcal{O}(n^{\omega_3})$} \\
+    \end{tabular}
+    & \textcolor{red}{$\mathcal{O}(n^{\omega_3})$}
+    & \multicolumn{1}{c}{$\mathcal{O}(n^{4})$ (trivial)} \\  
+    \cline{2-5} &
+    no $\mathcal{O}(n^{1-\eps})$ (\Cref{proposition: trivial lowerbound}) &
+    \begin{tabular}{c}
+      no $\mathcal{O}(n^{4-\eps})$ under "binary HyperClique" (\Cref{proposition: binary encoded hyperclique hypothesis})\\
+      no $\mathcal{O}(n^{3-\eps})$ under "SETH" \cite[Cor.\ 1.4]{williamsFasterDecisionFirstorder2014}
+    \end{tabular} &
+    no $\mathcal{O}(n^{4-\eps})$ under "HyperClique" &
+    \multicolumn{1}{c}{no $\mathcal{O}(n^{k-\eps})$ (\Cref{proposition: trivial lowerbound})}\\
+    \hline
+    \multirow{2}{*}{\begin{tabular}{c}
+    "PNF" $\fo^{4}$\\(combined)
     \end{tabular}}
     & \begin{tabular}{c}
         $\mathcal{O}(\len{\fml} \cdot n^{4})$ (trivial)\\
@@ -103,7 +130,7 @@
     \end{tabular}
     & \begin{tabular}{c}
         $\mathcal{O}(\len{\fml} \cdot n^{4})$ (trivial)\\
-        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{1 + \omega})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{4}$)\\
+        $\mathcal{O}(2^{\len{\fml}} \cdot n^{1 + \omega})$ \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014}\\
         \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_3})$}
     \end{tabular}
     & \begin{tabular}{c}
@@ -112,133 +139,214 @@
     \end{tabular}
     & $\mathcal{O}(\len{\fml} \cdot n^{4})$ (trivial)\\
     \cline{2-5}
-    & \multicolumn{4}{c}{no $\poly(\len{\fml}) \cdot n^{4 - \eps}$, under "SETH" (\Cref{theorem: FO3 model checking hardness})}\\  
-  \end{tabular}
-}
-\end{center}
-
-
-\begin{center}
-\scalebox{.5}{
-  \begin{tabular}{c||c||c|c|c||c}
-    Problem / max. arity $k$ & 1 & 2 & 3 & 4 & 5\\
+    & \multicolumn{4}{c}{no $\poly(\len{\fml}) \cdot n^{4 - \eps}$ under "SETH" (\Cref{theorem: FO3 model checking hardness})}\\
     \hline
     \multirow{2}{*}{\begin{tabular}{c}
-    "PNF" $\fo^{5}$ (data)\\
-    $\fo^{5}$ (data)
-    \end{tabular}} & $\mathcal{O}(n)$ (\Cref{proposition: unary}) & 
-    \begin{tabular}{c}
-        \textcolor{red}{$\mathcal{O}(n^{2 + \omega})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{5}$) \\
-        \textcolor{red}{$\mathcal{O}(n^{1 + \omega_3})$} (?? for $\fo^{5}$) \\
-        \textcolor{red}{$\mathcal{O}(n^{\omega_4})$} \\
-    \end{tabular}
-    & \begin{tabular}{c}
-        \textcolor{red}{$\mathcal{O}(n^{1 + \omega_3})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{5}$) \\
-        \textcolor{red}{$\mathcal{O}(n^{\omega_4})$} \\
-    \end{tabular} & \textcolor{red}{$\mathcal{O}(n^{\omega_4})$} & $\mathcal{O}(n^{5})$ (trivial) \\  
-    \cline{2-6}
-    & no $\mathcal{O}(n^{1-\eps})$ (\Cref{proposition: trivial lowerbound}) &
-    \multicolumn{2}{c|}{no $\mathcal{O}(n^{4-\eps})$ under "SETH" \cite[Cor.\ 1.4]{williamsFasterDecisionFirstorder2014}} &
-    \multicolumn{2}{c}{no $\mathcal{O}(n^{k-\eps})$ (\Cref{proposition: trivial lowerbound})}\\
-    \hline
-    \multirow{2}{*}{\begin{tabular}{c}
-    "PNF" $\fo^{5}$ (combined)\\
-    $\fo^{5}$ (combined)
+    $\fo^{4}$ \\(combined)
     \end{tabular}}
     & \begin{tabular}{c}
-        $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
+        $\mathcal{O}(\len{\fml} \cdot n^{4})$ (trivial)\\
         $\mathcal{O}(2^{\len{\fml}} \cdot n)$ (\Cref{proposition: unary})
     \end{tabular}
     & \begin{tabular}{c}
-        $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
-        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{2 + \omega})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{5}$)\\
-        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{1 + \omega_3})$} (?? for $\fo^{5}$)\\
-        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_4})$}
+        $\mathcal{O}(\len{\fml} \cdot n^{4})$ (trivial)\\
+        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_3})$}
     \end{tabular}
     & \begin{tabular}{c}
-        $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
-        \textcolor{red}{$\mathcal{O}(n^{1 + \omega_3})$} (?? for $\fo^{5}$)\\
-        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_4})$}
+        $\mathcal{O}(\len{\fml} \cdot n^{4})$ (trivial)\\
+        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_3})$}
     \end{tabular}
-    & 
-    \begin{tabular}{c}
-        $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
-        \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_4})$}
-    \end{tabular}
-    &
-    \begin{tabular}{c}
-        $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
-    \end{tabular}\\
-    \cline{2-6}
-    & \multicolumn{5}{c}{no $\poly(\len{\fml}) \cdot n^{5 - \eps}$, under "SETH" (\Cref{theorem: FO3 model checking hardness})}\\ 
+    & $\mathcal{O}(\len{\fml} \cdot n^{4})$ (trivial)\\
+    \cline{2-5}
+    & \multicolumn{4}{c}{no $\poly(\len{\fml}) \cdot n^{4 - \eps}$ under "SETH" (\Cref{theorem: FO3 model checking hardness})}
   \end{tabular}
 }
-\end{center}
+\caption{Complexity for $\fo^{4}$.}
+\label{table: FO4}
+\end{table}
+
+% \begin{center}
+% \scalebox{.5}{
+%   \begin{tabular}{c||c||c|c|c||c}
+%     Problem / max. arity $k$ & 1 & 2 & 3 & 4 & 5\\
+%     \hline
+%     \multirow{2}{*}{\begin{tabular}{c}
+%     "PNF" $\fo^{5}$ (data)\\
+%     $\fo^{5}$ (data)
+%     \end{tabular}} & $\mathcal{O}(n)$ (\Cref{proposition: unary}) & 
+%     \begin{tabular}{c}
+%         \textcolor{red}{$\mathcal{O}(n^{2 + \omega})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{5}$) \\
+%         \textcolor{red}{$\mathcal{O}(n^{1 + \omega_3})$} (?? for $\fo^{5}$) \\
+%         \textcolor{red}{$\mathcal{O}(n^{\omega_4})$} \\
+%     \end{tabular}
+%     & \begin{tabular}{c}
+%         \textcolor{red}{$\mathcal{O}(n^{1 + \omega_3})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{5}$) \\
+%         \textcolor{red}{$\mathcal{O}(n^{\omega_4})$} \\
+%     \end{tabular} & \textcolor{red}{$\mathcal{O}(n^{\omega_4})$} & $\mathcal{O}(n^{5})$ (trivial) \\  
+%     \cline{2-6}
+%     & no $\mathcal{O}(n^{1-\eps})$ (\Cref{proposition: trivial lowerbound}) &
+%     \multicolumn{2}{c|}{no $\mathcal{O}(n^{4-\eps})$ under "SETH" \cite[Cor.\ 1.4]{williamsFasterDecisionFirstorder2014}} &
+%     \multicolumn{2}{c}{no $\mathcal{O}(n^{k-\eps})$ (\Cref{proposition: trivial lowerbound})}\\
+%     \hline
+%     \multirow{2}{*}{\begin{tabular}{c}
+%     "PNF" $\fo^{5}$ (combined)\\
+%     $\fo^{5}$ (combined)
+%     \end{tabular}}
+%     & \begin{tabular}{c}
+%         $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
+%         $\mathcal{O}(2^{\len{\fml}} \cdot n)$ (\Cref{proposition: unary})
+%     \end{tabular}
+%     & \begin{tabular}{c}
+%         $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
+%         \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{2 + \omega})$} \cite[Cor.\ 1.3]{williamsFasterDecisionFirstorder2014} (?? for $\fo^{5}$)\\
+%         \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{1 + \omega_3})$} (?? for $\fo^{5}$)\\
+%         \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_4})$}
+%     \end{tabular}
+%     & \begin{tabular}{c}
+%         $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
+%         \textcolor{red}{$\mathcal{O}(n^{1 + \omega_3})$} (?? for $\fo^{5}$)\\
+%         \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_4})$}
+%     \end{tabular}
+%     & 
+%     \begin{tabular}{c}
+%         $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
+%         \textcolor{red}{$\mathcal{O}(2^{\len{\fml}} \cdot n^{\omega_4})$}
+%     \end{tabular}
+%     &
+%     \begin{tabular}{c}
+%         $\mathcal{O}(\len{\fml} \cdot n^{5})$ (trivial)\\
+%     \end{tabular}\\
+%     \cline{2-6}
+%     & \multicolumn{5}{c}{no $\poly(\len{\fml}) \cdot n^{5 - \eps}$, under "SETH" (\Cref{theorem: FO3 model checking hardness})}\\ 
+%   \end{tabular}
+% }
+% \end{center}
 
 \begin{yoshiki}
 \begin{itemize}
-    \item \Ja{?? は主張が不明/怪しい箇所（メモ\ref{memo: FO4}参照）}
-    \begin{itemize}
-        \item \Ja{主張が成り立たなそうであることを言うには、}\\
-        \Ja{Binary $\fo^{4}$ is in $\mathcal{O}(n^{4 - \eps})$ time $\Longrightarrow$ $\omega_{3} < 4$ を言えればよさそう。}
-        \begin{observation}
-            \begin{itemize}
-                \item $\omega_2 = \omega < 2.38 (< 3)$.\\
-                \item $\omega_{3} < 4$ is wished \cite{williamsFasterDecisionFirstorder2014} but open.\\
-                \Ja{4-clique in a 3-uniform hypergraph を含む難しい問題のようです。Cf.\ HyperClique Conjecture}
-            \end{itemize}
-        \end{observation}
-
-        \item \Ja{もしくは、もう少し精密化して今回の設定に合った行列積の問題に一般化する。}
-
-        \Ja{入力を$\range{n}$上の任意有限個の$m$項関係として、$k$引数関係 $A_1, \dots, A_{k}$ は入力の$m$項関係から $\fo^{k+1}$-definableであるとする。この時の``一般化行列積''}
-        \[D[i_1, \dots, i_k] = \bigvee_{\ell = 1}^{n} \bigwedge_{j = 1}^{k} A_j [i_1, \dots i_{j-1}, i_{j+1}, \dots, i_{k}, \ell]\]
-        \Ja{の時間計算量を $\mathcal{O}(n^{\omega_{k, m}})$ とする。}
-
-        \begin{itemize}
-            \item \Ja{Fact: $\omega_{k,k} = \omega_{k}$。とくに $\omega_{2,2} = \omega$。\\
-            （$\omega_{k, k} \le \omega_{k}$: $\fo^{k+1}$ "model checking" が $\mathcal{O}(n^{\omega_{k}})$より。 $\omega_{k, k} \ge \omega_{k}$: $A_1, \dots, A_k$ が入力になる場合を考える）}
-            \item \Ja{Fact: $\omega_{k,1} = k$ (成分ごと独立なので)}
-            \item \Ja{Fact: $k = \omega_{k, 1} \le \omega_{k,2} \le \dots \le \omega_{k,k} = \omega_{k} \le k+1$}
-            \item \Ja{Fact: $\omega_{k} = k+1$, under "$k$-uniform HyperClique Hypothesis" \cite{bringmannFineGrainedAnalogueSchaefers2019}, for $k \ge 3$}
-        \end{itemize}
-
-        $\leadsto$
-        \Ja{(??) $\omega_{k,2} = k+1$, under ``Strong'' "$k$-uniform HyperClique Hypothesis", for $k \ge 3$}\\
-        \Ja{みたいなことを言っておいても許される？？}        
-        
-        We then have:
-        \begin{proposition}
-            Binary $\fo^{4}$ is in $\mathcal{O}(n^{c})$ time $\iff$ $\omega_{3,2} \le c$.
-        \end{proposition}
-        \begin{proof}
-            $\Longleftarrow$: By an analog of the FO3-to-CoR translation.
-            $\Longrightarrow$: 
-            Every matrix multiplication problem "wrt" $\omega_{3,2}$ can 
-            be expressed as a "model checking problem" where the "sentence" is fixed to a binary $\fo^{4}$ "sentence".
-        \end{proof}
-
-        \begin{corollary}\label{corollary: omega 3 2}
-            If binary $\fo^{4}$ is in $\mathcal{O}(n^{1 + \omega})$ time, then $\omega_{3,2} \le 1 + \omega$.
-            Hence, $\omega_{3, 2} < 4$.
-        \end{corollary}
-
-         \Ja{$\leadsto$ ``Strong'' "$k$-uniform HyperClique Hypothesis" に反する}
-
-         \Ja{$\leadsto$ $\omega_{3, 2}$ の問題の形で書けるが $\mathcal{O}(n^{4-\eps})$ が open な問題はあるでしょうか？}
-    \end{itemize}
-    \item \Ja{赤の箇所は未証明}
+    \item \Ja{赤の箇所は未証明だが成り立つと思うもの}
+    \item \Ja{一般 "$\fo^{k}$" の Williams' algorithm \cite[Theorem 7]{gaoFineGrainedComplexityStrengthenings2019} は怪しい（後述）ので除外}
 \end{itemize}
 \end{yoshiki}
 
+\subsection{Boolean matrix multiplication and complexity of the model checking}
+We recall that
+\[(A \cdot B)(x, z) \quad\leftrightarrow\quad \exists y, A(x, y) \land B(y, z).\]
+Thus, the "boolean matrix multiplication" can be expressed as a "model checking problem" for dyadic $\fo^{3}$.
+Hence, we can observe the following fact.
+\begin{proposition}\label{proposition: FO3 model checking and matrix multiplication}
+  The "model checking problem" for dyadic $\fo^{3}$ is solvable in $\mathcal{O}(n^{\omega})$ time
+  "iff"
+  "boolean matrix multiplication" can be computed in $\mathcal{O}(n^{\omega})$ time.
+\end{proposition}
+\begin{proof}
+  $\Longrightarrow$: 
+  Matrix multiplication problem can be expressed as a "model checking problem".
+  $\Longleftarrow$: By the FO3-to-CoR translation.
+\end{proof}
+
+Below is a generalization of the "boolean matrix multiplication" to $k$-tensors.
+\begin{definition}[{\cite{lincolnTightHardnessShortest2018}}]\label{definition: k-wise matrix product}
+  Given $k$ $k$-tensors of dimensions $n \times \dots \times n$,
+  $A_1, \dots, A_k$, 
+  the ""$k$-wise matrix product"" is defined as the $k$-tensor $C$ given by:
+  \[C[i_1, \dots, i_k] \;\defeq\; \bigvee_{\ell = 1}^{n} \bigwedge_{j = 1}^{k} A_j[i_1, \dots i_{j-1}, i_{j+1}, \dots, i_{k}, \ell].\]
+\end{definition}
+
+\begin{proposition}\label{proposition: FOk model checking and matrix multiplication}
+  The "model checking problem" for $k$-adic $\fo^{k+1}$ is solvable in $\mathcal{O}(n^{\omega_k})$ time
+  "iff"
+  "$k$-wise matrix product" can be computed in $\mathcal{O}(n^{\omega_k})$ time.
+\end{proposition}
+\begin{proof}
+  $\Longrightarrow$: 
+  "$k$-wise matrix product" can be expressed as a "model checking problem".
+  $\Longleftarrow$: By an analog of the FO3-to-CoR translation.(TODO:)
+\end{proof}
+
+By a specific restriction, we can give a matrix multiplication characterization for $m$-adic $\fo^{k+1}$,
+as follows:
+\begin{proposition}\label{proposition: FOmk model checking and matrix multiplication}
+  The "model checking problem" for $m$-adic $\fo^{k+1}$ is solvable in $\mathcal{O}(n^{\omega_{k,m}})$ time
+  "iff"
+  "$k$-wise matrix product", where the input tensors are $\fo^{k+1}$-defined with $m$-ary relations,
+   can be computed in $\mathcal{O}(n^{\omega_{k,m}})$ time.
+\end{proposition}
+\begin{proof}
+  $\Longrightarrow$: This restricted "$k$-wise matrix product" can be expressed as a "model checking problem" of $m$-adic $\fo^{k+1}$.
+  $\Longleftarrow$: Almost trivial.
+\end{proof}
+
+\begin{itemize}
+    \item \Ja{Fact: $\omega_{k,k} = \omega_{k}$。とくに $\omega_{2,2} = \omega$。}
+    \item \Ja{Fact: $\omega_{k,1} = k$ (成分ごと独立なので)}
+    \item \Ja{Fact: $k = \omega_{k, 1} \le \omega_{k,2} \le \dots \le \omega_{k,k} = \omega_{k} \le k+1$}
+    \item \Ja{Fact: $\omega_{k} = k+1$, under "HyperClique Hypothesis" \cite{bringmannFineGrainedAnalogueSchaefers2019}, for $k \ge 3$}
+\end{itemize}
+
+\subsection{Hyperclique hypothesis and boolean matrix multiplication}
+
+% \begin{hypothesis}["$k$-uniform $\ell$-hyperclique hypothesis" {\cite[Hypothesis 1.4]{lincolnTightHardnessShortest2018}}]\label{hypothesis: hyperclique hypothesis}
+% For $\ell > k$ let us consider the following problem:
+% Given a "structure" $\struc$ with one (symmetric) $k$-ary relation $E$ (of $k$-tuples of pairwise distinct elements),
+% \[\exists v_1, \dots v_\ell \in \univ{\struc},\  \forall S \subseteq \set{v_1, \dots, v_{\ell}} \text{ s.t. $\# S = k$},\  E^{\struc} \cap S^k \neq \emptyset?\]
+% That is, this problem asks whether there is a "$k$-uniform $\ell$-hyperclique" in the given "structure"?
+% For $\ell > k \ge 3$,
+% the ""$k$-uniform $\ell$-hyperclique hypothesis"" is that this problem is not solvable in $\mathcal{O}(n^{4 - \eps})$ time for any $\eps > 0$.\lipicsEnd
+% \end{hypothesis}
+% This problem can be rephrased as follows.
+\begin{hypothesis}["$(k+1)$-hyperclique hypothesis" (rephrased) {\cite[Hypothesis 1.4]{lincolnTightHardnessShortest2018}}]\label{hypothesis: hyperclique hypothesis rephrased}
+Let us consider the following "formula"
+\[\fml \defeq \exists x_1, \dots x_{k+1},\ \bigwedge_{j = 1}^{k} E(x_1, \dots x_{i-1}, x_{i+1}, \dots, x_{k+1}).\]
+Given a "structure" $\struc$ with one symmetric $k$-ary relation $E$ (of $k$-tuples of pairwise distinct elements),
+does $\struc \models \fml$ hold?
+The ""($k$-uniform) $(k+1)$-hyperclique hypothesis"" is that this problem is not solvable in $\mathcal{O}(n^{4 - \eps})$ time for any $\eps > 0$.\lipicsEnd
+\end{hypothesis}
+For instance, when $k = 3$, the "formula" in \Cref{hypothesis: hyperclique hypothesis rephrased} is expressed as follows:
+\[\fml \defeq \exists x_1, x_2, x_3,\  E(x_1, x_2, x_3) \land \exists x_4, E(x_1, x_2, x_4) \land E(x_2, x_3, x_4) \land E(x_3, x_1, x_4).\]
+To calculate this "formula", we can use "$k$-wise matrix product" for the part ``$\exists x_4, E(x_1, x_2, x_4) \land E(x_2, x_3, x_4) \land E(x_3, x_1, x_4)$''.
+Hence, we have:
+\begin{proposition}
+  For $k \ge 3$, under ""$(k+1)$-hyperclique hypothesis"", $\omega_k = k+1$.
+  Hence, the "model checking problem" for $k$-adic $\fo^{k+1}$ is not solvable in $\mathcal{O}(n^{k + 1 - \eps})$ time.
+\end{proposition}
+
+Below, we introduce a stronger version of the "$(k+1)$-hyperclique hypothesis".
+\begin{hypothesis}["binary encoded $(k+1)$-hyperclique hypothesis"]\label{hypothesis: binary encoded hyperclique hypothesis}
+For $m \ge 2$,
+Let us consider the following "formula":
+\[\fml \defeq \exists x_1, \dots x_{k+1},\ \bigwedge_{j = 1}^{k} \mathcal{E}(x_1, \dots x_{i-1}, x_{i+1}, \dots, x_{k+1}),\]
+where $\mathcal{E}(y_1, \dots, y_k) \defeq \exists z, \bigwedge_{j = 1}^{k} E(z, y_j)$.
+Then, given a "structure" $\struc$ with one binary relation $E$,
+does $\struc \models \fml$ hold?
+The ""binary encoded $(k+1)$-hyperclique hypothesis"" is that this problem is not solvable in $\mathcal{O}(n^{k - \eps})$ time for any $\eps > 0$.\lipicsEnd
+\end{hypothesis}
 \begin{yoshiki}
-  \begin{itemize}
-    \item \Ja{"SETH" $\Longrightarrow$ Hyperclique Hypothesis（参照 \href{https://cstheory.stackexchange.com/a/32251}{https://cstheory.stackexchange.com/a/32251}）}
-    \item \Ja{"SETH" $\Longrightarrow$ ``Strong'' Hyperclique Hypothesis は未検証 (Open Problem)。}\\
-    \Ja{もしこれが成り立つと \cite[Theorem 7]{gaoFineGrainedComplexityStrengthenings2019} は誤り（under "SETH"）。}
-  \end{itemize} 
+  \Ja{$\mathcal{E}(y_1, \dots, y_k)$ を2項関係の$\fo^{k+1}$論理式でエンコードする場合を考えています。}
+
+  \Ja{愚直に \Cref{hypothesis: hyperclique hypothesis rephrased} に帰着しようとすると頂点数が $n^k$ になるため帰着できない}
 \end{yoshiki}
 
+\begin{proposition}\label{proposition: binary encoded hyperclique hypothesis}
+    For $k \ge 3$, under the ""binary encoded $(k+1)$-hyperclique hypothesis"", $\omega_{k, 2} = k+1$.
+    Hence, the "model checking problem" for dyadic $\fo^{k+1}$ is not solvable in $\mathcal{O}(n^{k + 1 - \eps})$ time.
+\end{proposition}
+
+\begin{problem}
+  \Cref{hypothesis: binary encoded hyperclique hypothesis} fails?
+\end{problem}
+
+\begin{yoshiki}
+  \Ja{$\leadsto$ $\omega_{k, 2}$ の問題の形で書けるが $\mathcal{O}(n^{k+1-\eps})$ が open なにか問題はありそうでしょうか？}
+\end{yoshiki}
+
+% \begin{yoshiki}
+%   \begin{itemize}
+%     \item \Ja{"SETH" $\Longrightarrow$ Hyperclique Hypothesis（参照 \href{https://cstheory.stackexchange.com/a/32251}{https://cstheory.stackexchange.com/a/32251}）}
+%     \item \Ja{"SETH" $\Longrightarrow$ ``Strong'' Hyperclique Hypothesis は未検証 (Open Problem)。}\\
+%     \Ja{もしこれが成り立つと \cite[Theorem 7]{gaoFineGrainedComplexityStrengthenings2019} は誤り（under "SETH"）。}
+%   \end{itemize} 
+% \end{yoshiki}
 
 % \subsection{An Efficient "CNF"-"SAT"}
 % We say that a "CNF" with $n$ \kl(propositional){variables} is ""$k$-decomposable"" if
