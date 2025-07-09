@@ -398,46 +398,49 @@
 \KAuxFileAt {from_cnf.tex}{42}
 \KAuxErrorKnowledgeUnknown {default}{}{satisfiable}{satisfiable}{\kl }
 
-\KAuxFileAt {from_cnf.tex}{49}
+\KAuxFileAt {from_cnf.tex}{58}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-20}{document}
 
-\KAuxFileAt {from_cnf.tex}{71}
+\KAuxFileAt {from_cnf.tex}{64}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-21}{document}
+
+\KAuxFileAt {from_cnf.tex}{86}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-22}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-23}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-24}{document}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-25}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-26}{document}
 \KAuxDeclaredScopeTag {theorem: FO3 model checking hardness 1 binary}
 \KAuxNewLinkScopetagInstance {theorem: FO3 model checking hardness 1 binary}{document}
 \KAuxDeclaredScopeTag {lemma: FO3 model checking hardness 1 binary}
 \KAuxNewLinkScopetagInstance {lemma: FO3 model checking hardness 1 binary}{document}
 
-\KAuxFileAt {from_cnf.tex}{108}
+\KAuxFileAt {from_cnf.tex}{123}
 \KAuxErrorKnowledgeUnknown {default}{propositional}{valuation}{valuation}{\kl }
 
-\KAuxFileAt {from_cnf.tex}{112}
+\KAuxFileAt {from_cnf.tex}{127}
 \KAuxErrorKnowledgeUnknown {default}{propositional}{valuation}{valuation}{\kl }
 
-\KAuxFileAt {from_cnf.tex}{122}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-26}{document}
+\KAuxFileAt {from_cnf.tex}{137}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-27}{document}
 \KAuxDeclaredScopeTag {thm:FO3-FPT}
 \KAuxNewLinkScopetagInstance {thm:FO3-FPT}{document}
 
 \KAuxFileAt {fpt.tex}{66}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-27}{document}
-
-\KAuxFileAt {fpt.tex}{109}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-28}{document}
 
-\KAuxFileAt {fpt.tex}{385}
+\KAuxFileAt {fpt.tex}{109}
 \KAuxScopeNewInstance {tikzpicture}{tikzpicture-29}{document}
+
+\KAuxFileAt {fpt.tex}{385}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-30}{document}
 \KAuxDeclaredScopeTag {sec: conclusion}
 \KAuxNewLinkScopetagInstance {sec: conclusion}{document}
 \KAuxDeclaredScopeTag {proposition: trivial lowerbound}
 \KAuxNewLinkScopetagInstance {proposition: trivial lowerbound}{document}
 
 \KAuxFileAt {tips.tex}{34}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-30}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-31}{document}
 \KAuxDeclaredScopeTag {proposition: unary}
 \KAuxNewLinkScopetagInstance {proposition: unary}{document}
 
@@ -451,14 +454,14 @@
 \KAuxErrorKnowledgeUnknown {default}{}{free variable}{free variable}{\kl }
 
 \KAuxFileAt {tips.tex}{48}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-31}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-32}{document}
 \KAuxDeclaredScopeTag {table: FO3}
 \KAuxNewLinkScopetagInstance {table: FO3}{document}
 \KAuxDeclaredScopeTag {table: FO4}
 \KAuxNewLinkScopetagInstance {table: FO4}{document}
 
 \KAuxFileAt {tips.tex}{230}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-32}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-33}{document}
 \KAuxErrorKnowledgeUnknown {default}{}{$\fo ^{k}$}{$\fo ^{k}$}{\kl }
 
 \KAuxFileAt {tips.tex}{235}
@@ -492,12 +495,12 @@
 \KAuxNewLinkScopetagInstance {hypothesis: binary encoded hyperclique hypothesis}{document}
 
 \KAuxFileAt {tips.tex}{328}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-33}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-34}{document}
 \KAuxDeclaredScopeTag {proposition: binary encoded hyperclique hypothesis}
 \KAuxNewLinkScopetagInstance {proposition: binary encoded hyperclique hypothesis}{document}
 
 \KAuxFileAt {tips.tex}{341}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-34}{document}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-35}{document}
 
 \KAuxFileAt {memo.tex}{25}
 \KAuxScopeNewInstance {scope}{scope-1}{document}
@@ -507,9 +510,9 @@
 \KAuxNewLinkScopetagInstance {memo: FO4}{document}
 
 \KAuxFileAt {memo.tex}{95}
-\KAuxScopeNewInstance {tikzpicture}{tikzpicture-35}{document}
-\KAuxScopeNewInstance {scope}{scope-4}{tikzpicture-35}
-\KAuxScopeNewInstance {scope}{scope-5}{tikzpicture-35}
+\KAuxScopeNewInstance {tikzpicture}{tikzpicture-36}{document}
+\KAuxScopeNewInstance {scope}{scope-4}{tikzpicture-36}
+\KAuxScopeNewInstance {scope}{scope-5}{tikzpicture-36}
 \KAuxScopeNewInstance {scope}{scope-6}{scope-5}
 \KAuxDeclaredScopeTag {memo: dichotomy}
 \KAuxNewLinkScopetagInstance {memo: dichotomy}{document}

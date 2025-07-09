@@ -44,6 +44,21 @@ In this section, we answer to this question negatively, assuming "SETH", as foll
     "CNF"-"SAT" is in $\mathcal{O}(f(\len{\fml}) \cdot (2^{n/k})^{k-\eps})$ time.
 \end{proof}
 
+\begin{proof}[Another proof of \Cref{theorem: FO3 model checking hardness}]
+    TODO:
+    \begin{yoshiki}
+    \Ja{基本方針は同じだが、unary relation symbols を変数でなく節に対応づけてもよい。}\\
+    \[\exists z_1. \dots \exists z_k. \bigwedge_{i = 1}^{m} \bigvee_{j = 1}^{k} C_i(z_j).\]
+    \Ja{（MAX-2SAT to MAX triangle の帰着 \cite{williamsExactAlgorithmsMaximum2016} を $2^{m}$次元$(0,1)$ベクトルの重みで考えている）}
+
+    \Ja{式の長さ：$\mathcal{O}(k m)$, モデルの頂点数：$\mathcal{O}(k 2^{n/k})$}
+
+    \Ja{（\Cref{theorem: FO3 model checking hardness} の帰着）}
+    \Ja{式の長さ：$\mathcal{O}(\len{\fml})$, モデルの頂点数：$\mathcal{O}(2^{n/k})$}
+    \end{yoshiki}
+\end{proof}
+
+
 \begin{yoshiki}
     TODO: Add a note on succinctness.
 \end{yoshiki}

@@ -47,9 +47,9 @@
  | unary relation symbol
 % from_cnf.tex:42
  | satisfiable
-% from_cnf.tex:108
+% from_cnf.tex:123
  | valuation@propositional
-% from_cnf.tex:112
+% from_cnf.tex:127
  | valuation@propositional
 % tips.tex:37
  | equality

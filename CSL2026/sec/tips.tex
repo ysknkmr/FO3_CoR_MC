@@ -300,7 +300,7 @@ Let us consider the following "formula"
 \[\fml \defeq \exists x_1, \dots x_{k+1},\ \bigwedge_{j = 1}^{k} E(x_1, \dots x_{i-1}, x_{i+1}, \dots, x_{k+1}).\]
 Given a "structure" $\struc$ with one symmetric $k$-ary relation $E$ (of $k$-tuples of pairwise distinct elements),
 does $\struc \models \fml$ hold?
-The ""($k$-uniform) $(k+1)$-hyperclique hypothesis"" is that this problem is not solvable in $\mathcal{O}(n^{4 - \eps})$ time for any $\eps > 0$.\lipicsEnd
+The ""($k$-uniform) $(k+1)$-hyperclique hypothesis"" is that this problem is not solvable in $\mathcal{O}(n^{k+1 - \eps})$ time for any $\eps > 0$.\lipicsEnd
 \end{hypothesis}
 For instance, when $k = 3$, the "formula" in \Cref{hypothesis: hyperclique hypothesis rephrased} is expressed as follows:
 \[\fml \defeq \exists x_1, x_2, x_3,\  E(x_1, x_2, x_3) \land \exists x_4, E(x_1, x_2, x_4) \land E(x_2, x_3, x_4) \land E(x_3, x_1, x_4).\]
@@ -324,7 +324,7 @@ The ""binary encoded $(k+1)$-hyperclique hypothesis"" is that this problem is no
 \begin{yoshiki}
   \Ja{$\mathcal{E}(y_1, \dots, y_k)$ を2項関係の$\fo^{k+1}$論理式でエンコードする場合を考えています。}
 
-  \Ja{愚直に \Cref{hypothesis: hyperclique hypothesis rephrased} に帰着しようとすると頂点数が $n^k$ になるため帰着できない}
+  \Ja{愚直に \Cref{hypothesis: hyperclique hypothesis rephrased} からの帰着を考えると頂点数が $n^k$ になって帰着できない}
 \end{yoshiki}
 
 \begin{proposition}\label{proposition: binary encoded hyperclique hypothesis}
@@ -337,7 +337,7 @@ The ""binary encoded $(k+1)$-hyperclique hypothesis"" is that this problem is no
 \end{problem}
 
 \begin{yoshiki}
-  \Ja{$\leadsto$ $\omega_{k, 2}$ の問題の形で書けるが $\mathcal{O}(n^{k+1-\eps})$ が open なにか問題はありそうでしょうか？}
+  \Ja{$\leadsto$ $\omega_{k, 2}$ の問題の形で書けるが $\mathcal{O}(n^{k+1-\eps})$ が open になっている問題は何かありそうでしょうか？}
 \end{yoshiki}
 
 % \begin{yoshiki}
